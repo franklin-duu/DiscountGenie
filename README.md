@@ -37,7 +37,7 @@ AI_SERVICE_URL=http://ai-service:8000
 ## Initial Setup Commands
 ### --- Frontend Setup ---
 ```bash
-cd frontend
+cd client
 npm install
 ```
 
