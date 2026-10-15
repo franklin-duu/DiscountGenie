@@ -18,7 +18,7 @@
 ---
 
 ## Environment Variables
-Create a `.env` file in the `backend` directory and add your MySQL credentials:
+Create a `.env` file in the `server` directory or configure them in your `docker-compose.yml` if needed:
 
 DB_HOST=db
 
