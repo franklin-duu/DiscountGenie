@@ -20,15 +20,12 @@
 ## Environment Variables
 Create a `.env` file in the `backend` directory and add your MySQL credentials:
 
-DB_HOST= 
-
-DB_PORT=
-
-DB_USER=
-
-DB_PASSWORD=
-
-DB_NAME=
+DB_HOST=db
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=password
+DB_NAME=steam_sales
+AI_SERVICE_URL=http://ai-service:8000
 
 ---
 
@@ -39,29 +36,10 @@ cd frontend
 npm install
 ```
 
-### --- Backend Setup ---
+### --- Database & Docker Services Setup ---
 ```bash
-cd backend
-python -m venv venv
-
-for mac: source venv/bin/activate
-
-for windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### --- Database Setup ---
-```bash
-cd db
-psql -U postgres
-CREATE DATABASE steam_sales;
-\c steam_sales;
-\i schema.sql;
-
-To check:
-\c steam_sales;
-\dt
-SELECT * FROM games;
+# Ensure you are in the project root directory containing docker-compose.yml
+docker-compose build
 ```
 
 ---
@@ -70,15 +48,12 @@ SELECT * FROM games;
 
 ### --- Run Backend ---
 ```bash
-cd backend
-for mac: source venv/bin/activate
-for windows: venv\Scripts\activate
-uvicorn main:app --reload
+docker-compose up
 ```
 
-### --- Run Frontend ---
+### --- Run Frontend (In seperate terminal) ---
 ```bash
-cd frontend
+cd client
 npm run dev
 ```
 
@@ -91,15 +66,17 @@ npm run dev
 Ctrl + C
 ```
 
-### --- Stop Backend ---
+### --- Stop Backend & Docker Services---
 ```bash
 Ctrl + C
-deactivate
+# OR run the following to tear down the containers completely:
+docker-compose down
 ```
 
 ---
 
 ## Notes
-- Only run setup steps once  
-- Make sure PostgreSQL is running locally  
-- Backend will fail if `.env` is not configured properly  
+- PostgreSQL, the Python AI microservice, and the Node.js backend run entirely inside Docker containers.
+- The React frontend runs locally via Vite on your host machine.
+- Only run npm install and initial setup steps once.
+- Make sure Docker Desktop is running on your machine before executing docker-compose up.
