@@ -21,10 +21,15 @@
 Create a `.env` file in the `backend` directory and add your MySQL credentials:
 
 DB_HOST=db
+
 DB_PORT=5432
+
 DB_USER=postgres
+
 DB_PASSWORD=password
+
 DB_NAME=steam_sales
+
 AI_SERVICE_URL=http://ai-service:8000
 
 ---
