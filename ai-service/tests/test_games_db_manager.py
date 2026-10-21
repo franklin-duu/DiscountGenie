@@ -1,3 +1,4 @@
+import json
 import sys
 import types
 import unittest
@@ -127,6 +128,33 @@ class GamesDBManagerTests(unittest.TestCase):
         self.assertEqual(result, history)
         self.assertEqual(connection.executed[0][1], (730,))
         self.assertIn("ORDER BY last_recorded_at DESC", connection.executed[0][0])
+
+    def test_get_prediction_returns_latest_saved_prediction(self):
+        prediction = {
+            "app_id": 730,
+            "final_probability": Decimal("0.6400"),
+            "model_details": {"models": {"nlp": {"sale_probability": 0.5}}},
+        }
+        connection = FakeConnection(fetchone_results=[prediction])
+        manager = GamesDBManager(connection)
+
+        result = manager.get_prediction(730)
+
+        self.assertEqual(result, prediction)
+        self.assertIn("ADD COLUMN IF NOT EXISTS model_details", connection.executed[0][0])
+        self.assertEqual(connection.executed[1][1], (730,))
+
+    def test_save_prediction_upserts_model_outputs_as_json(self):
+        connection = FakeConnection()
+        manager = GamesDBManager(connection)
+        details = {"models": {"historical": {"sale_probability": 0.7}}}
+
+        manager.save_prediction(730, 0.7, 0.5, 0.64, "Within 30 days", details)
+
+        query, params = connection.executed[0]
+        self.assertIn("ON CONFLICT (app_id) DO UPDATE", query)
+        self.assertEqual(json.loads(params[5]), details)
+        self.assertEqual(connection.commits, 1)
 
     def test_database_error_rolls_back(self):
         connection = FakeConnection(execute_error=RuntimeError("database error"))

@@ -18,6 +18,13 @@ services:
       - "8000:8000"
     environment:
       - PORT=8000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=steam_sales
+    depends_on:
+      - db
 
   backend:
     build: ./server

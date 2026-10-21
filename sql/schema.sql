@@ -51,6 +51,10 @@ CREATE TABLE sale_predictions (
     model_2_score DECIMAL(5,4),
     final_probability DECIMAL(5,4),
     predicted_sale_window VARCHAR(100),
+    model_details JSONB NOT NULL DEFAULT '{}'::jsonb,
     updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (app_id)
 );
+
+ALTER TABLE sale_predictions
+ADD COLUMN IF NOT EXISTS model_details JSONB NOT NULL DEFAULT '{}'::jsonb;

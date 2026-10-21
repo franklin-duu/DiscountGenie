@@ -9,27 +9,31 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8000';
 
-// Example route: Get game insights by calling the Python AI service
 app.get('/api/games/:appId/insights', async (req, res) => {
     try {
         const { appId } = req.params;
-        
-        // 1. Fetch game data & history from SQL Database here...
-        // 2. Query Python AI Service for predictions
+        const numericAppId = Number(appId);
+        if (!Number.isInteger(numericAppId) || numericAppId <= 0) {
+            return res.status(400).json({ error: 'Invalid Steam app ID' });
+        }
+
         const aiResponse = await axios.post(`${AI_SERVICE_URL}/predict`, {
-            app_id: parseInt(appId),
-            days_since_last_sale: 45,
-            discount_history_avg: 0.50,
-            news_sentiment_score: 0.82
+            app_id: numericAppId
         });
 
         res.json({
-            appId,
-            predictions: aiResponse.data
+            appId: aiResponse.data.app_id,
+            game: aiResponse.data.game,
+            predictions: aiResponse.data.prediction,
+            models: aiResponse.data.models,
+            cached: aiResponse.data.cached,
+            demo: aiResponse.data.demo,
+            updatedAt: aiResponse.data.updated_at
         });
     } catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Internal server error' });
+        const status = err.response?.status || 502;
+        const message = err.response?.data?.detail || 'Prediction service is unavailable';
+        res.status(status).json({ error: message });
     }
 });
 

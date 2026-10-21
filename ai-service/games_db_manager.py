@@ -1,3 +1,4 @@
+import json
 import os
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal
@@ -146,6 +147,64 @@ class GamesDBManager:
         with self.connection.cursor(cursor_factory=RealDictCursor) as cursor:
             cursor.execute(query, (app_id,))
             return [dict(history_row) for history_row in cursor.fetchall()]
+
+    def get_prediction(self, app_id: int) -> Optional[dict[str, Any]]:
+        migration_query = """
+            ALTER TABLE sale_predictions
+            ADD COLUMN IF NOT EXISTS model_details JSONB NOT NULL DEFAULT '{}'::jsonb;
+        """
+        query = """
+            SELECT app_id, model_1_score, model_2_score, final_probability,
+                   predicted_sale_window, updated_at, model_details
+            FROM sale_predictions
+            WHERE app_id = %s;
+        """
+        with self.connection.cursor(cursor_factory=RealDictCursor) as cursor:
+            cursor.execute(migration_query)
+            cursor.execute(query, (app_id,))
+            prediction = cursor.fetchone()
+        self.connection.commit()
+        return dict(prediction) if prediction else None
+
+    def save_prediction(
+        self,
+        app_id: int,
+        historical_probability: float,
+        news_probability: float,
+        final_probability: float,
+        predicted_sale_window: str,
+        model_details: dict[str, Any],
+    ) -> None:
+        query = """
+            INSERT INTO sale_predictions
+                (app_id, model_1_score, model_2_score, final_probability,
+                 predicted_sale_window, model_details, updated_at)
+            VALUES (%s, %s, %s, %s, %s, %s::jsonb, CURRENT_TIMESTAMP)
+            ON CONFLICT (app_id) DO UPDATE SET
+                model_1_score = EXCLUDED.model_1_score,
+                model_2_score = EXCLUDED.model_2_score,
+                final_probability = EXCLUDED.final_probability,
+                predicted_sale_window = EXCLUDED.predicted_sale_window,
+                model_details = EXCLUDED.model_details,
+                updated_at = CURRENT_TIMESTAMP;
+        """
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute(
+                    query,
+                    (
+                        app_id,
+                        historical_probability,
+                        news_probability,
+                        final_probability,
+                        predicted_sale_window,
+                        json.dumps(model_details),
+                    ),
+                )
+            self.connection.commit()
+        except Exception:
+            self.connection.rollback()
+            raise
 
     # Steam integration
 

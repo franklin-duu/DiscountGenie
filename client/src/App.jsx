@@ -1,65 +1,143 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
-function App() {
-  const [gameInsights, setGameInsights] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const GAME_ID = 730;
 
-  // Test function to verify the full frontend -> backend -> AI service pipeline
-  const fetchInsights = async (appId) => {
+function App() {
+  const [insights, setInsights] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const fetchInsights = async () => {
     setLoading(true);
-    setError(null);
+    setError('');
     try {
-      const response = await axios.get(`http://localhost:5000/api/games/${appId}/insights`);
-      setGameInsights(response.data);
-    } catch (err) {
-      console.error("Error fetching data:", err);
-      setError("Failed to fetch AI insights. Make sure Docker containers are running (docker-compose up).");
+      const response = await axios.get(`http://localhost:5000/api/games/${GAME_ID}/insights`);
+      setInsights(response.data);
+    } catch (requestError) {
+      setError(
+        requestError.response?.data?.error ||
+        'Could not reach the prediction service. Start the backend with docker-compose up.',
+      );
     } finally {
       setLoading(false);
     }
   };
 
+  const probability = insights?.predictions?.sale_probability;
+  const percent = typeof probability === 'number' ? probability * 100 : null;
+
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '800px', margin: '40px auto', padding: '20px' }}>
-      <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ color: '#1b2838' }}>Discount Genie</h1>
-        <p style={{ color: '#66c0f4' }}>AI-Powered Deal Forecasting Dashboard</p>
+    <main className="page-shell">
+      <header className="topbar">
+        <a className="wordmark" href="#top" aria-label="Discount Genie home">
+          <span className="wordmark-mark">DG</span>
+          <span>Discount Genie</span>
+        </a>
+        <span className="topbar-note">STEAM SALE FORECAST / DEMO</span>
       </header>
 
-      <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '8px', border: '1px solid #dee2e6' }}>
-        <h2>Pipeline Connection Test</h2>
-        <p>Click below to test data flow from React $\rightarrow$ Express Backend $\rightarrow$ Python AI Microservice:</p>
-        
-        <button 
-          onClick={() => fetchInsights(730)} // Example: App ID 730
-          style={{
-            background: '#2a475e',
-            color: 'white',
-            border: 'none',
-            padding: '10px 20px',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            marginTop: '10px'
-          }}
-        >
-          Test AI Prediction (App ID: 730)
-        </button>
+      <section className="forecast" id="top" aria-labelledby="game-title">
+        <div className="game-art-wrap">
+          <img
+            className="game-art"
+            src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+            alt="Counter-Strike 2 artwork"
+          />
+          <span className="art-tag">APP ID 730</span>
+        </div>
 
-        {loading && <p style={{ marginTop: '15px', color: '#555' }}>Querying AI models...</p>}
-        {error && <p style={{ color: '#d9534f', marginTop: '15px' }}>{error}</p>}
+        <div className="forecast-copy">
+          <p className="eyebrow"><span className="live-dot" /> GAME ON DECK</p>
+          <h1 id="game-title">Counter-Strike 2</h1>
+          <p className="game-meta">Valve <span>/</span> Developer &amp; publisher</p>
+          <p className="intro-copy">
+            Pull the latest game snapshot and run it through the demo forecasting pipeline.
+          </p>
 
-        {gameInsights && (
-          <div style={{ marginTop: '20px', background: 'white', padding: '15px', borderRadius: '6px', border: '1px solid #ccc' }}>
-            <h3>Prediction Results for App ID: {gameInsights.appId}</h3>
-            <p><strong>Sale Probability:</strong> {(gameInsights.predictions.sale_probability * 100).toFixed(1)}%</p>
-            <p><strong>Predicted Window:</strong> {gameInsights.predictions.predicted_window}</p>
+          <button className="predict-button" onClick={fetchInsights} disabled={loading}>
+            <span>{loading ? 'Grabbing Counter-Strike 2 data...' : 'Grab Counter-Strike 2 data'}</span>
+            <span className="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          {error && <p className="error-message" role="alert">{error}</p>}
+          <p className="demo-note">Demo game and article inputs; model scores are placeholders.</p>
+        </div>
+      </section>
+
+      <section className="results" aria-live="polite" aria-labelledby="results-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">FORECAST OUTPUT</p>
+            <h2 id="results-heading">Sale outlook</h2>
           </div>
-        )}
-      </div>
-    </div>
+          {insights && (
+            <span className="save-state">
+              {insights.cached ? 'MOST RECENT SAVED' : 'JUST CALCULATED'}
+            </span>
+          )}
+        </div>
+
+        <div className="outlook-grid">
+          <div className="probability-block">
+            <span className="metric-label">Chance of a sale</span>
+            <div className="probability-value">
+              <strong>{percent === null ? '--' : `${percent.toFixed(1)}%`}</strong>
+              <span className="probability-caption">demo probability</span>
+            </div>
+            <div className="probability-track" aria-label={percent === null ? 'No prediction yet' : `${percent}% chance`}>
+              <span style={{ width: `${percent ?? 0}%` }} />
+            </div>
+          </div>
+          <div className="timing-block">
+            <span className="metric-label">Predicted timing</span>
+            <strong>{insights?.predictions?.predicted_sale_window || 'Run forecast to see timing'}</strong>
+            {insights?.game && (
+              <span className="price-caption">
+                Demo price: ${Number(insights.game.current_price).toFixed(2)}
+                {` / ${Number(insights.game.discount_percent).toFixed(0)}% off`}
+              </span>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {insights?.models && (
+        <section className="models" aria-labelledby="models-heading">
+          <div className="section-heading model-heading">
+            <div>
+              <p className="eyebrow">UNDER THE HOOD</p>
+              <h2 id="models-heading">Model handoff</h2>
+            </div>
+            <span className="model-note">Inputs and outputs are ready to replace</span>
+          </div>
+          <div className="model-grid">
+            <article className="model-stage historical-stage">
+              <span className="stage-index">01 / HISTORY</span>
+              <h3>Historical sales</h3>
+              <p>{insights.models.historical?.inputs?.history_observations ?? 0} stored price periods</p>
+              <strong>{Math.round((insights.models.historical?.sale_probability ?? 0) * 100)}% likelihood</strong>
+            </article>
+            <article className="model-stage nlp-stage">
+              <span className="stage-index">02 / NLP</span>
+              <h3>News &amp; entities</h3>
+              <p>{insights.models.nlp?.article_count ?? 0} placeholder articles · {insights.models.nlp?.inputs?.developer || 'Developer'} / {insights.models.nlp?.inputs?.publisher || 'Publisher'}</p>
+              <strong>{Math.round((insights.models.nlp?.sentiment_score ?? 0.5) * 100)}% neutral sentiment</strong>
+            </article>
+            <article className="model-stage fusion-stage">
+              <span className="stage-index">03 / FUSION</span>
+              <h3>Final forecast</h3>
+              <p>{Math.round((insights.models.fusion?.inputs?.historical_weight ?? 0) * 100)}% history · {Math.round((insights.models.fusion?.inputs?.news_weight ?? 0) * 100)}% news</p>
+              <strong>{insights.models.fusion?.model || 'Waiting for model run'}</strong>
+            </article>
+          </div>
+        </section>
+      )}
+
+      <footer className="page-footer">
+        <span>DISCOUNT GENIE</span>
+        <span>DEMO BUILD · NOT A LIVE FINANCIAL FORECAST</span>
+      </footer>
+    </main>
   );
 }
 
