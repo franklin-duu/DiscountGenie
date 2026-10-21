@@ -24,8 +24,8 @@ function App() {
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '800px', margin: '40px auto', padding: '20px' }}>
       <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ color: '#1b2838' }}>Steam Sale Predictor</h1>
-        <p style={{ color: '#66c0f4' }}>AI-Powered Sale & Discount Forecasting Dashboard</p>
+        <h1 style={{ color: '#1b2838' }}>Discount Genie</h1>
+        <p style={{ color: '#66c0f4' }}>AI-Powered Deal Forecasting Dashboard</p>
       </header>
 
       <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '8px', border: '1px solid #dee2e6' }}>
