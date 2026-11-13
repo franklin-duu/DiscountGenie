@@ -1,8 +1,11 @@
+import os
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from games_db_manager import GamesDBManager
-from prediction_models import run_prediction_pipeline
+from prediction_models import SteamSaleXGBoostModel, run_prediction_pipeline
 from steam_api import SteamAPIError
 
 app = FastAPI(title="Steam Sale AI Inference Service")
@@ -29,6 +32,16 @@ DEMO_ARTICLES = [
         "source": "demo-fixture",
     }
 ]
+
+
+def _load_trained_model():
+    model_path = Path(os.getenv("MODEL_DIR", "/models")) / "steam_sale_xgboost.json"
+    if not model_path.exists():
+        return None
+    try:
+        return SteamSaleXGBoostModel.load(model_path)
+    except Exception:
+        return None
 
 
 def _cached_response(game, saved_prediction):
@@ -81,8 +94,9 @@ def predict_sale(data: PredictionRequest):
 
         result = run_prediction_pipeline(
             game,
-            manager.get_price_history(data.app_id),
+            manager.get_daily_price_history(data.app_id),
             DEMO_ARTICLES,
+            historical_model=_load_trained_model(),
         )
         models = result["models"]
         manager.save_prediction(

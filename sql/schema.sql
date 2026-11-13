@@ -31,6 +31,72 @@ CREATE TABLE game_price_history (
 CREATE INDEX idx_price_history_app_date
 ON game_price_history(app_id, last_recorded_at DESC);
 
+-- Compressed storage remains in game_price_history. This view expands each
+-- uninterrupted price period into one logical UTC calendar-day observation
+-- only when the model queries it.
+CREATE OR REPLACE VIEW game_price_history_daily AS
+WITH expanded AS (
+    SELECT
+        h.id,
+        h.app_id,
+        day::date AS observation_date,
+        h.base_price,
+        h.current_price,
+        h.discount_percent,
+        h.first_recorded_at,
+        h.last_recorded_at
+    FROM game_price_history AS h
+    CROSS JOIN LATERAL generate_series(
+        date_trunc('day', h.first_recorded_at AT TIME ZONE 'UTC'),
+        date_trunc('day', h.last_recorded_at AT TIME ZONE 'UTC'),
+        interval '1 day'
+    ) AS day
+), ranked AS (
+    SELECT
+        expanded.*,
+        row_number() OVER (
+            PARTITION BY app_id, observation_date
+            ORDER BY first_recorded_at DESC, id DESC
+        ) AS row_rank
+    FROM expanded
+)
+SELECT
+    app_id,
+    observation_date,
+    base_price,
+    current_price,
+    discount_percent,
+    first_recorded_at,
+    last_recorded_at
+FROM ranked
+WHERE row_rank = 1;
+
+CREATE INDEX idx_price_history_app_first_date
+ON game_price_history(app_id, first_recorded_at DESC);
+
+-- Materialized training examples. These can be regenerated from the
+-- compressed price history whenever feature logic changes.
+CREATE TABLE sale_training_examples (
+    id BIGSERIAL PRIMARY KEY,
+    app_id INT NOT NULL REFERENCES games(app_id) ON DELETE CASCADE,
+    observation_date DATE NOT NULL,
+    current_price DECIMAL(10,2),
+    base_price DECIMAL(10,2),
+    discount_percent INT NOT NULL DEFAULT 0,
+    sale_events_last_30_days INT NOT NULL DEFAULT 0,
+    sale_events_last_90_days INT NOT NULL DEFAULT 0,
+    sale_events_last_180_days INT NOT NULL DEFAULT 0,
+    days_since_last_sale INT NOT NULL,
+    average_discount_last_180_days DECIMAL(5,2) NOT NULL DEFAULT 0,
+    month INT NOT NULL CHECK (month BETWEEN 1 AND 12),
+    sale_within_30_days BOOLEAN NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (app_id, observation_date)
+);
+
+CREATE INDEX idx_training_examples_app_date
+ON sale_training_examples(app_id, observation_date);
+
 CREATE TABLE user_watchlist (
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     app_id INT REFERENCES games(app_id) ON DELETE CASCADE,

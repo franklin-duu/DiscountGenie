@@ -51,7 +51,9 @@ def get_steam_game(
     else:
         base_price = _price_in_dollars(price_overview, "initial")
         current_price = _price_in_dollars(price_overview, "final")
-        discount_percent = (price_overview or {}).get("discount_percent", 0.0)
+        discount_percent = int(
+            round(float((price_overview or {}).get("discount_percent", 0)))
+        )
 
     return {
         "app_id": app_id,

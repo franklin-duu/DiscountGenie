@@ -9,6 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      - postgres_data:/var/lib/postgresql/data
       - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
   ai-service:
@@ -16,8 +17,13 @@ services:
     container_name: steam_ai
     ports:
       - "8000:8000"
+    volumes:
+      - model_data:/models
+      - ./training_data:/training_data
     environment:
       - PORT=8000
+      - MODEL_DIR=/models
+      - TRAINING_DATA_DIR=/training_data
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=postgres
@@ -38,3 +44,7 @@ services:
     depends_on:
       - db
       - ai-service
+
+volumes:
+  postgres_data:
+  model_data:
