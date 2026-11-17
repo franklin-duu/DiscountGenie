@@ -1,7 +1,7 @@
 """Build training examples and train the Steam sale model.
 
 Run inside the AI-service container with:
-    python train_model.py
+    python -m ml_training.train_model
 """
 
 import os
@@ -9,13 +9,10 @@ import re
 from pathlib import Path
 
 from games_db_manager import GamesDBManager
-from prediction_models import (
-    SteamSaleXGBoostModel,
-    build_training_rows,
-    load_base_price_schedule_csv,
-    load_steamdb_csv,
-)
+from prediction_models import SteamSaleXGBoostModel
 from steam_api import get_steam_game
+from .training_data_loader import load_base_price_schedule_csv, load_steamdb_csv
+from .training_rows import build_training_rows
 
 
 def main() -> None:

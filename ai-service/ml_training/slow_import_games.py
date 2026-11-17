@@ -1,10 +1,13 @@
-"""Slowly import game metadata for App IDs represented by training CSVs.
+"""
+USED ONLY TO HELP FILL OUT TRAINING DATA
+
+Slowly import game metadata for App IDs represented by training CSVs.
 
 This intentionally reuses get_steam_game() from steam_api.py and waits between
 requests. It is meant for one-time data population, not the prediction API.
 
 Run from the AI-service container with:
-    python slow_import_games.py
+    python -m ml_training.slow_import_games
 """
 
 import argparse

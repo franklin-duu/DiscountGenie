@@ -1,11 +1,14 @@
-# READ ME
+# DiscountGenie
 
 ## Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Environment Variables](#environment-variables)
 - [Setup Commands](#initial-setup-commands)
 - [Run Commands](#run-commands)
 - [Viewing Training Data](#viewing-training-data)
+- [Training the Model](#training-the-model)
+- [Testing Predictions](#testing-predictions)
 - [Data Persistence](#data-persistence)
 - [Stopping the Application](#stopping-the-application)
 - [Notes](#notes)
@@ -14,13 +17,13 @@
 
 ## Prerequisites
 - Node.js
-- Python 3.x
-- PostgreSQL (running locally)
+- Docker Desktop with Docker Compose
 
 ---
 
 ## Environment Variables
-Create a `.env` file in the `server` directory or configure them in your `docker-compose.yml` if needed:
+The default values are already configured in `docker-compose.yml`. Create a
+`.env` file in the `server` directory only if you need to override them:
 
 DB_HOST=db
 
@@ -46,8 +49,8 @@ npm install
 ### --- Database & Docker Services Setup ---
 ```bash
 # Ensure you are in the project root directory containing docker-compose.yml
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
 
 ---
@@ -56,10 +59,10 @@ docker-compose up -d
 
 ### --- Run Backend ---
 ```bash
-docker-compose up
+docker compose up -d db ai-service backend
 ```
 
-### --- Run Frontend (In seperate terminal) ---
+### --- Run Frontend (In separate terminal) ---
 ```bash
 cd client
 npm run dev
@@ -91,38 +94,79 @@ through `GamesDBManager.save_training_examples()`.
 
 ## Training the Model
 
-After the database contains games with at least 30 days of price history, run:
+Run these commands from the project root after starting the database.
+
+### Import Steam game metadata
+
+This imports metadata for App IDs found in `training_data/price_history/` into
+PostgreSQL and writes it to `training_data/games.csv`:
 
 ```bash
-docker compose run --rm ai-service python train_model.py
+docker compose run --rm ai-service python -m ml_training.slow_import_games
 ```
 
-The trainer reads manually maintained base prices from
-`training_data/base_price_history.csv` and SteamDB CSVs from
-`training_data/price_history/`. SteamDB files should include the App ID in
-their filename, such as `steamdb_chart_620.csv`.
+It waits three seconds between Steam requests and skips games already in the
+database. Add `--force` to refresh existing metadata, or use
+`--delay 10` for a ten-second delay.
 
-To slowly populate the `games` table and write metadata to
-`training_data/games.csv` using the App IDs in those filenames,
-run the one-time importer:
+### Import CSV price history
+
+Load the corrected SteamDB histories into PostgreSQL:
 
 ```bash
-docker compose run --rm ai-service python slow_import_games.py
+docker compose build ai-service
+docker compose run --rm ai-service python -m ml_training.import_price_history
 ```
 
-It waits three seconds between Steam requests by default, skips games already
-in the database, and reuses the existing `steam_api.py` caller. To refresh
-existing games, add `--force`. To use a longer delay, for example ten seconds:
+The CSV files are treated as the source of truth. Existing imported history for
+each app is replaced transactionally, so this is safe to rerun after correcting
+anomaly handling or base prices.
+
+### Train the XGBoost model
+
+The trainer reads `training_data/base_price_history.csv` and the CSV files in
+`training_data/price_history/`, generates labeled rows, saves them to
+`sale_training_examples`, and writes the model to:
 
 ```bash
-docker compose run --rm ai-service python slow_import_games.py --delay 10
+docker compose run --rm ai-service python -m ml_training.train_model
 ```
 
-The command generates labeled rows, saves them to `sale_training_examples`,
-trains the XGBoost model, and saves it to:
+The model is stored in the Docker volume at:
 
 ```text
 /models/steam_sale_xgboost.json
+```
+
+After retraining, clear cached predictions and restart the AI service:
+
+```bash
+docker compose exec -T db psql -U postgres -d steam_sales -c 'TRUNCATE sale_predictions;'
+docker compose restart ai-service
+```
+
+## Testing Predictions
+
+Test the AI service directly:
+
+```bash
+curl -X POST http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"app_id":620}'
+```
+
+The response should contain `"model": "steam_sale_xgboost_v1"`.
+
+Test through the backend:
+
+```bash
+curl http://localhost:5000/api/games/620/insights
+```
+
+Run the automated AI-service tests:
+
+```bash
+docker compose exec -T ai-service python -m unittest discover -s tests -p 'test_*.py'
 ```
 
 ## Data Persistence
@@ -130,7 +174,8 @@ trains the XGBoost model, and saves it to:
 Docker uses named volumes for PostgreSQL data and trained model files:
 
 - `postgres_data` stores games, price history, training examples, and predictions.
-- `model_data` stores files such as `/models/steam_sale_xgboost.json`.
+- `model_data` stores files such as `/models/steam_sale_xgboost.json`. The
+  model is not normally visible in the repository.
 
 Do not run the following command unless you intentionally want to delete all
 database and model data:
@@ -152,7 +197,7 @@ Ctrl + C
 ```bash
 Ctrl + C
 # OR run the following to tear down the containers completely:
-docker-compose down
+docker compose down
 ```
 
 `docker compose down` removes containers but preserves the named volumes.
@@ -162,5 +207,5 @@ docker-compose down
 ## Notes
 - PostgreSQL, the Python AI microservice, and the Node.js backend run entirely inside Docker containers.
 - The React frontend runs locally via Vite on your host machine.
-- Only run npm install and initial setup steps once.
-- Make sure Docker Desktop is running on your machine before executing docker-compose up.
+- Run `npm install` once unless the frontend dependencies change.
+- Make sure Docker Desktop is running before executing Docker Compose commands.

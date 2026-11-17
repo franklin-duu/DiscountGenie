@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-import csv
-from datetime import date, datetime
 from pathlib import Path
-from typing import Any, Iterable, Optional, Union
+from typing import Any, Iterable, Optional
 
 try:
     import pandas as pd
@@ -12,81 +10,7 @@ except ImportError:  # Optional for the existing demo-only pipeline.
     pd = None
     XGBClassifier = Any
 
-
-SALE_FEATURE_COLUMNS = [
-    "current_price",
-    "base_price",
-    "discount_percent",
-    "sale_events_last_30_days",
-    "sale_events_last_90_days",
-    "sale_events_last_180_days",
-    "days_since_last_sale",
-    "average_discount_last_180_days",
-    "month",
-]
-
-
-def load_steamdb_csv(
-    path: Union[str, Path],
-    base_price_schedule: list[tuple[Union[date, datetime, str], float]],
-) -> list[dict[str, Any]]:
-    """Load SteamDB price points using known historical list-price changes.
-
-    ``base_price_schedule`` contains (effective_date, base_price) entries.
-    The latest entry at or before each observation is used. Blank prices are
-    skipped because they cannot produce a training observation.
-    """
-    _require_ml_dependencies()
-    schedule = sorted(
-        (pd.Timestamp(effective).tz_localize(None).normalize(), float(price))
-        for effective, price in base_price_schedule
-    )
-    if not schedule:
-        raise ValueError("At least one base-price schedule entry is required")
-
-    history = []
-    with open(path, newline="", encoding="utf-8-sig") as csv_file:
-        for row in csv.DictReader(csv_file):
-            if not (row.get("Final price") or "").strip():
-                continue
-            observed_at = pd.Timestamp(row["DateTime"]).tz_localize(None)
-            applicable = [entry for entry in schedule if entry[0] <= observed_at.normalize()]
-            if not applicable:
-                raise ValueError(
-                    f"No base price schedule entry covers {observed_at.date()}"
-                )
-            base_price = applicable[-1][1]
-            current_price = float(row["Final price"])
-            history.append(
-                {
-                    "observation_date": observed_at,
-                    "current_price": current_price,
-                    "base_price": base_price,
-                    "discount_percent": max(
-                        0, round((1 - current_price / base_price) * 100)
-                    ),
-                }
-            )
-    return history
-
-
-def load_base_price_schedule_csv(
-    path: Union[str, Path],
-) -> dict[int, list[tuple[str, float]]]:
-    """Load manually maintained base-price changes grouped by App ID."""
-    _require_ml_dependencies()
-    schedules: dict[int, list[tuple[str, float]]] = {}
-    with open(path, newline="", encoding="utf-8-sig") as csv_file:
-        for row in csv.DictReader(csv_file):
-            if not row.get("app_id") or not row.get("effective_from"):
-                continue
-            app_id = int(row["app_id"])
-            schedules.setdefault(app_id, []).append(
-                (row["effective_from"], float(row["base_price"]))
-            )
-    for app_id in schedules:
-        schedules[app_id].sort(key=lambda item: item[0])
-    return schedules
+from model_features import SALE_FEATURE_COLUMNS, build_sale_feature_row
 
 
 def _require_ml_dependencies() -> None:
@@ -95,115 +19,6 @@ def _require_ml_dependencies() -> None:
             "pandas and xgboost are required for SteamSaleXGBoostModel; "
             "install ai-service/requirements.txt"
         )
-
-
-def _observation_date(row: dict[str, Any]) -> pd.Timestamp:
-    _require_ml_dependencies()
-    value = row.get("observation_date")
-    if value is None:
-        value = row.get("last_recorded_at") or row.get("first_recorded_at")
-    if value is None:
-        raise ValueError("Every price-history row needs an observation date")
-    return pd.Timestamp(value).tz_localize(None).normalize()
-
-
-def _normalise_history(price_history: Iterable[dict[str, Any]]) -> pd.DataFrame:
-    _require_ml_dependencies()
-    rows = []
-    for row in price_history:
-        copied = dict(row)
-        copied["observation_date"] = _observation_date(copied)
-        copied["discount_percent"] = float(copied.get("discount_percent") or 0)
-        copied["current_price"] = float(copied.get("current_price") or 0)
-        copied["base_price"] = float(copied.get("base_price") or 0)
-        rows.append(copied)
-
-    if not rows:
-        return pd.DataFrame(
-            columns=["observation_date", "current_price", "base_price", "discount_percent"]
-        )
-
-    return (
-        pd.DataFrame(rows)
-        .sort_values("observation_date")
-        .drop_duplicates("observation_date", keep="last")
-        .reset_index(drop=True)
-    )
-
-
-def _sale_event_dates(history: pd.DataFrame) -> list[pd.Timestamp]:
-    if history.empty:
-        return []
-    discounted = history["discount_percent"] > 0
-    started = discounted & ~discounted.shift(1, fill_value=False)
-    return history.loc[started, "observation_date"].tolist()
-
-
-def build_sale_feature_row(
-    game: dict[str, Any],
-    price_history: Iterable[dict[str, Any]],
-    as_of: Optional[Union[date, datetime, str]] = None,
-) -> dict[str, Any]:
-    """Build one prediction row using only history available on ``as_of``."""
-    history = _normalise_history(price_history)
-    if history.empty:
-        raise ValueError("At least one price-history row is required")
-
-    target_date = (
-        pd.Timestamp(as_of).tz_localize(None).normalize()
-        if as_of is not None
-        else history["observation_date"].max()
-    )
-    prior = history[history["observation_date"] <= target_date]
-    if prior.empty:
-        raise ValueError("No price history exists on or before as_of")
-
-    latest = prior.iloc[-1]
-    event_dates = _sale_event_dates(prior)
-
-    def events_in_days(days: int) -> int:
-        start = target_date - pd.Timedelta(days=days)
-        return sum(start < event_date <= target_date for event_date in event_dates)
-
-    previous_events = [event_date for event_date in event_dates if event_date <= target_date]
-    days_since_last_sale = (
-        (target_date - previous_events[-1]).days if previous_events else 9999
-    )
-
-    discount_start = target_date - pd.Timedelta(days=180)
-    recent = prior[prior["observation_date"] >= discount_start]
-    return {
-        "current_price": float(latest["current_price"]),
-        "base_price": float(latest["base_price"]),
-        "discount_percent": float(latest["discount_percent"]),
-        "sale_events_last_30_days": events_in_days(30),
-        "sale_events_last_90_days": events_in_days(90),
-        "sale_events_last_180_days": events_in_days(180),
-        "days_since_last_sale": days_since_last_sale,
-        "average_discount_last_180_days": float(recent["discount_percent"].mean()),
-        "month": int(target_date.month),
-    }
-
-
-def build_training_rows(
-    game: dict[str, Any], price_history: Iterable[dict[str, Any]]
-) -> list[dict[str, Any]]:
-    """Create one labeled row per historical day with a complete 30-day future."""
-    history = _normalise_history(price_history)
-    if len(history) < 2:
-        return []
-
-    event_dates = _sale_event_dates(history)
-    last_date = history["observation_date"].max()
-    rows = []
-    for target_date in history["observation_date"]:
-        if target_date + pd.Timedelta(days=30) > last_date:
-            continue
-        features = build_sale_feature_row(game, price_history, target_date)
-        label = int(any(target_date < event <= target_date + pd.Timedelta(days=30) for event in event_dates))
-        features.update({"app_id": game.get("app_id"), "observation_date": target_date, "sale_within_30_days": label})
-        rows.append(features)
-    return rows
 
 
 class SteamSaleXGBoostModel:
