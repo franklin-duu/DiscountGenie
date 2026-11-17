@@ -74,8 +74,7 @@ WHERE row_rank = 1;
 CREATE INDEX idx_price_history_app_first_date
 ON game_price_history(app_id, first_recorded_at DESC);
 
--- Materialized training examples. These can be regenerated from the
--- compressed price history whenever feature logic changes.
+-- not used at the moment but can be used in the future use db data to train the ml model
 CREATE TABLE sale_training_examples (
     id BIGSERIAL PRIMARY KEY,
     app_id INT NOT NULL REFERENCES games(app_id) ON DELETE CASCADE,
