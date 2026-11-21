@@ -136,6 +136,37 @@ class GamesDBManager:
             cursor.execute(query)
             return [dict(game) for game in cursor.fetchall()]
 
+    def get_rankable_games(self, limit: int = 30) -> list[dict[str, Any]]:
+        query = """
+            SELECT g.app_id, g.name, g.publisher, g.developer, g.base_price,
+                   g.current_price, g.discount_percent, g.last_updated,
+                   COUNT(h.id) AS history_periods
+            FROM games AS g
+            LEFT JOIN game_price_history AS h ON h.app_id = g.app_id
+            GROUP BY g.app_id
+            ORDER BY (COUNT(h.id) > 0) DESC, COUNT(h.id) DESC,
+                     g.last_updated DESC, g.app_id
+            LIMIT %s;
+        """
+        with self.connection.cursor(cursor_factory=RealDictCursor) as cursor:
+            cursor.execute(query, (limit,))
+            return [dict(game) for game in cursor.fetchall()]
+
+    def search_games(self, query_text: str, limit: int = 20) -> list[dict[str, Any]]:
+        query = """
+            SELECT app_id, name, publisher, developer, base_price,
+                   current_price, discount_percent, last_updated
+            FROM games
+            WHERE app_id::text = %s OR name ILIKE %s OR publisher ILIKE %s
+            ORDER BY CASE WHEN lower(name) = lower(%s) THEN 0 ELSE 1 END,
+                     name, app_id
+            LIMIT %s;
+        """
+        pattern = f"%{query_text}%"
+        with self.connection.cursor(cursor_factory=RealDictCursor) as cursor:
+            cursor.execute(query, (query_text, pattern, pattern, query_text, limit))
+            return [dict(game) for game in cursor.fetchall()]
+
     def get_price_history(self, app_id: int) -> list[dict[str, Any]]: # Returns all of the table entries for a game using its app id, newest period first.
         query = """
             SELECT id, app_id, base_price, current_price,

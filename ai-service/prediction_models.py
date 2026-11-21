@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import json
+import math
+import re
+from statistics import median
 from pathlib import Path
-from typing import Any, Iterable, Optional
+from typing import Any, Iterable, Optional, Protocol
 
 try:
     import pandas as pd
@@ -96,47 +100,189 @@ class DummyHistoricalSalesModel:
         }
 
 
-class DummyNewsLanguageModel:
-    """Accept article and entity inputs while returning a neutral demo score."""
+class HistoricalSalesModel(Protocol):
+    def predict(
+        self, game: dict[str, Any], price_history: list[dict[str, Any]]
+    ) -> dict[str, Any]: ...
 
-    name = "dummy_news_nlp_v1"
+
+ARTICLE_LEXICON = {
+    "sale": 0.8,
+    "discount": 0.8,
+    "anniversary": 0.8,
+    "sequel": 0.7,
+    "seasonal sale": 1.2,
+    "publisher sale": 1.2,
+    "bundle": 0.7,
+    "deep discount": 1.2,
+    "summer sale": 1.2,
+    "winter sale": 1.2,
+    "price hike": -1.2,
+    "full price": -0.8,
+    "no discount": -1.2,
+    "delisted": -1.2,
+    "price increase": -1.2,
+}
+
+
+def _sigmoid(value: float) -> float:
+    value = max(-40.0, min(40.0, value))
+    return 1.0 / (1.0 + math.exp(-value))
+
+
+def _entity_match(game: dict[str, Any], article: dict[str, Any]) -> bool:
+    text = " ".join(
+        str(article.get(field) or "") for field in ("title", "text")
+    ).casefold()
+    entities = [game.get("name"), game.get("publisher")]
+    return any(
+        len(entity_text) >= 3 and entity_text.casefold() in text
+        for entity in entities
+        if (entity_text := str(entity or "").strip())
+    )
+
+
+def article_feature_counts(
+    game: dict[str, Any],
+    articles: list[dict[str, Any]],
+    phrases: Iterable[str] = ARTICLE_LEXICON,
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    matched_articles = [article for article in articles if _entity_match(game, article)]
+    combined_text = " ".join(
+        f"{article.get('title') or ''} {article.get('text') or ''}"
+        for article in matched_articles
+    ).casefold()
+    counts = {
+        phrase: min(5, len(re.findall(rf"(?<!\w){re.escape(phrase)}(?!\w)", combined_text)))
+        for phrase in phrases
+    }
+    return matched_articles, counts
+
+
+class WeightedArticleSaleModel:
+    """Logistic sale model over entity-matched article phrase counts."""
+
+    name = "steam_sale_article_logistic_v1"
 
     def predict(
-        self, game: dict[str, Any], articles: list[dict[str, str]]
+        self, game: dict[str, Any], articles: list[dict[str, Any]]
     ) -> dict[str, Any]:
+        phrases = self.artifact["phrase_weights"]
+        matched_articles, counts = article_feature_counts(game, articles, phrases)
+        if not matched_articles:
+            return {
+                "model": self.name,
+                "applicable": False,
+                "article_count": 0,
+                "matched_phrases": [],
+                "sentiment_score": None,
+            }
+
+        matched_phrases = [
+            {
+                "phrase": phrase,
+                "weight": round(float(weight), 4),
+                "count": counts.get(phrase, 0),
+            }
+            for phrase, weight in phrases.items()
+            if counts.get(phrase, 0)
+        ]
+        weighted_score = sum(
+            item["weight"] * item["count"] for item in matched_phrases
+        )
+        logit = float(self.artifact["intercept"]) + weighted_score
+        probability = _sigmoid(logit)
         return {
             "model": self.name,
-            "inputs": {
-                "game_name": game.get("name"),
-                "developer": game.get("developer"),
-                "publisher": game.get("publisher"),
-                "articles": articles,
-            },
-            "article_count": len(articles),
-            "sentiment_score": 0.5,
-            "sale_probability": 0.5,
+            "applicable": True,
+            "article_count": len(matched_articles),
+            "matched_phrases": matched_phrases,
+            "sentiment_score": round(_sigmoid(weighted_score), 4),
+            "sale_probability": round(probability, 4),
         }
 
+    def __init__(self, artifact: Optional[dict[str, Any]] = None):
+        self.artifact = artifact or {
+            "intercept": 0.0,
+            "phrase_weights": dict(ARTICLE_LEXICON),
+        }
 
-class DummyFusionModel:
-    """Combine historical and article model scores into a demo forecast."""
+    @classmethod
+    def load(cls, path: str | Path) -> "WeightedArticleSaleModel":
+        with open(path, encoding="utf-8") as model_file:
+            return cls(json.load(model_file))
 
-    name = "dummy_prediction_fusion_v1"
-    historical_weight = 0.7
-    news_weight = 0.3
+
+class SynthesisLogisticModel:
+    """Combine model probabilities and coverage signals with logistic regression."""
+
+    name = "steam_sale_synthesis_logistic_v1"
+
+    def __init__(self, artifact: Optional[dict[str, Any]] = None):
+        self.artifact = artifact or {
+            "intercept": -0.7,
+            "coefficients": {
+                "historical_probability": 1.8,
+                "article_probability": 0.9,
+                "article_applies": 0.2,
+                "article_count": 0.03,
+                "history_observations": 0.001,
+            },
+        }
+
+    @classmethod
+    def load(cls, path: str | Path) -> "SynthesisLogisticModel":
+        with open(path, encoding="utf-8") as model_file:
+            return cls(json.load(model_file))
 
     def predict(
         self,
         historical_output: dict[str, Any],
-        news_output: dict[str, Any],
+        article_output: dict[str, Any],
+        history_observations: int,
     ) -> dict[str, Any]:
-        historical_probability = historical_output["sale_probability"]
-        news_probability = news_output["sale_probability"]
-        sale_probability = round(
-            historical_probability * self.historical_weight
-            + news_probability * self.news_weight,
-            4,
+        historical_probability = float(historical_output["sale_probability"])
+        applies = bool(article_output["applicable"])
+        article_probability = (
+            float(article_output["sale_probability"]) if applies else 0.0
         )
+        article_count = int(article_output["article_count"]) if applies else 0
+        coefficients = self.artifact["coefficients"]
+        features = {
+            "historical_probability": historical_probability,
+            "article_probability": article_probability,
+            "article_applies": int(applies),
+            "article_count": article_count,
+            "history_observations": int(history_observations),
+        }
+        # Abstention is a true pass-through: no synthetic news score can shift it.
+        if not applies:
+            sale_probability = historical_probability
+            effective_weights = {"historical": 1.0, "article": 0.0}
+        else:
+            logit = float(self.artifact["intercept"]) + sum(
+                float(coefficients.get(name, 0.0)) * value
+                for name, value in features.items()
+            )
+            sale_probability = _sigmoid(logit)
+            historical_term = abs(
+                float(coefficients.get("historical_probability", 0.0))
+                * historical_probability
+            )
+            article_term = abs(
+                float(coefficients.get("article_probability", 0.0))
+                * article_probability
+            )
+            total_term = historical_term + article_term
+            effective_weights = (
+                {
+                    "historical": round(historical_term / total_term, 4),
+                    "article": round(article_term / total_term, 4),
+                }
+                if total_term
+                else {"historical": 1.0, "article": 0.0}
+            )
+        sale_probability = round(sale_probability, 4)
 
         if sale_probability >= 0.75:
             predicted_sale_window = "Within 14 days"
@@ -147,30 +293,39 @@ class DummyFusionModel:
 
         return {
             "model": self.name,
-            "inputs": {
-                "historical_probability": historical_probability,
-                "news_probability": news_probability,
-                "historical_weight": self.historical_weight,
-                "news_weight": self.news_weight,
-            },
+            "inputs": features,
             "sale_probability": sale_probability,
             "predicted_sale_window": predicted_sale_window,
+            "effective_weights": effective_weights,
         }
 
 
 def run_prediction_pipeline(
     game: dict[str, Any],
     price_history: list[dict[str, Any]],
-    articles: list[dict[str, str]],
-    historical_model: Optional[SteamSaleXGBoostModel] = None,
+    articles: list[dict[str, Any]],
+    historical_model: Optional[HistoricalSalesModel] = None,
+    article_model: Optional[WeightedArticleSaleModel] = None,
+    synthesis_model: Optional[SynthesisLogisticModel] = None,
 ) -> dict[str, Any]:
     historical_output = (
         historical_model.predict(game, price_history)
-        if historical_model is not None
+        if historical_model is not None and price_history
         else DummyHistoricalSalesModel().predict(game, price_history)
     )
-    news_output = DummyNewsLanguageModel().predict(game, articles)
-    fusion_output = DummyFusionModel().predict(historical_output, news_output)
+    article_output = (article_model or WeightedArticleSaleModel()).predict(game, articles)
+    history_observations = len(price_history)
+    fusion_output = (synthesis_model or SynthesisLogisticModel()).predict(
+        historical_output, article_output, history_observations
+    )
+    sale_discounts = [
+        float(row.get("discount_percent") or 0)
+        for row in price_history
+        if float(row.get("discount_percent") or 0) > 0
+    ]
+    expected_discount_percent = (
+        float(median(sale_discounts)) if sale_discounts else None
+    )
 
     return {
         "app_id": game["app_id"],
@@ -189,10 +344,16 @@ def run_prediction_pipeline(
         "prediction": {
             "sale_probability": fusion_output["sale_probability"],
             "predicted_sale_window": fusion_output["predicted_sale_window"],
+            "expected_discount_percent": (
+                round(expected_discount_percent, 1)
+                if expected_discount_percent is not None
+                else None
+            ),
         },
         "models": {
             "historical": historical_output,
-            "nlp": news_output,
+            "nlp": article_output,
             "fusion": fusion_output,
         },
+        "effective_weights": fusion_output["effective_weights"],
     }

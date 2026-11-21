@@ -94,7 +94,8 @@ through `GamesDBManager.save_training_examples()`.
 
 ## Training the Model
 
-Run these commands from the project root after starting the database.
+Run these commands from the project root. Training examples use the Steam price
+history files in `training_data/price_history/` and the base-price schedules.
 
 ### Import Steam game metadata
 
@@ -145,6 +146,30 @@ docker compose exec -T db psql -U postgres -d steam_sales -c 'TRUNCATE sale_pred
 docker compose restart ai-service
 ```
 
+### Collect articles and train the news models
+
+The bounded collector snapshots Steam app news for ten varied games from
+`games.csv` into `training_data/articles/articles.json`. Training then works
+from that saved snapshot without a news request:
+
+```bash
+docker compose run --rm ai-service python -m ml_training.collect_articles
+docker compose run --rm ai-service python -m ml_training.train_news_models
+docker compose restart ai-service
+```
+
+Train the existing XGBoost model first. The article/synthesis command reuses
+that model, trains the weighted article lexicon and synthesis logistic
+regression, prints the game/article counts, and truncates `sale_predictions`
+after successful training. The trained JSON files are saved in `/models` on
+the existing `model_data` volume.
+
+The local backend uses `DB_*` values from Compose. For Compose, put
+`JWT_SECRET` in the repository-root `.env` file (ignored by Git) if login
+tokens should remain valid across backend restarts; direct `npm start` can
+load it from `server/.env`. Without it, a fresh local-only key is generated at
+startup.
+
 ## Testing Predictions
 
 Test the AI service directly:
@@ -156,6 +181,12 @@ curl -X POST http://localhost:8000/predict \
 ```
 
 The response should contain `"model": "steam_sale_xgboost_v1"`.
+
+The home-page ranking is also available at:
+
+```bash
+curl http://localhost:5000/api/games/ranked
+```
 
 Test through the backend:
 

@@ -129,6 +129,32 @@ class GamesDBManagerTests(unittest.TestCase):
         self.assertEqual(connection.executed[0][1], (730,))
         self.assertIn("ORDER BY last_recorded_at DESC", connection.executed[0][0])
 
+    def test_rankable_games_are_capped_and_prioritize_price_history(self):
+        games = [{"app_id": 620, "history_periods": 20}]
+        connection = FakeConnection(fetchall_result=games)
+        manager = GamesDBManager(connection)
+
+        result = manager.get_rankable_games(15)
+
+        query, params = connection.executed[0]
+        self.assertEqual(result, games)
+        self.assertEqual(params, (15,))
+        self.assertIn("COUNT(h.id) > 0", query)
+        self.assertIn("LIMIT %s", query)
+
+    def test_search_games_uses_parameterized_steam_catalog_filters(self):
+        games = [{"app_id": 620, "name": "Portal 2"}]
+        connection = FakeConnection(fetchall_result=games)
+        manager = GamesDBManager(connection)
+
+        result = manager.search_games("Portal 2")
+
+        query, params = connection.executed[0]
+        self.assertEqual(result, games)
+        self.assertEqual(params, ("Portal 2", "%Portal 2%", "%Portal 2%", "Portal 2", 20))
+        self.assertIn("app_id::text = %s", query)
+        self.assertIn("name ILIKE %s", query)
+
     def test_get_prediction_returns_latest_saved_prediction(self):
         prediction = {
             "app_id": 730,

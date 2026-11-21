@@ -14,34 +14,89 @@ class PredictionModelsTests(unittest.TestCase):
             "discount_percent": 0,
         }
 
-    def test_pipeline_passes_history_and_article_inputs_through_models(self):
+    def test_matched_articles_raise_probability_and_report_model_weights(self):
         articles = [
             {
-                "title": "Demo fixture article",
-                "text": "Placeholder article text for the NLP model.",
-                "source": "demo-fixture",
+                "title": "Counter-Strike 2 seasonal sale announcement",
+                "text": "A publisher sale brings a deep discount.",
+                "source": "Steam news",
             }
         ]
 
         result = run_prediction_pipeline(
             self.game,
-            [{"discount_percent": 50}, {"discount_percent": 0}],
+            [
+                {"discount_percent": 50},
+                {"discount_percent": 0},
+                {"discount_percent": 20},
+            ],
             articles,
         )
 
-        self.assertEqual(result["models"]["historical"]["inputs"]["history_observations"], 2)
-        self.assertEqual(result["models"]["historical"]["sale_probability"], 0.7)
-        self.assertEqual(result["models"]["nlp"]["inputs"]["articles"], articles)
-        self.assertEqual(result["models"]["nlp"]["inputs"]["publisher"], "Valve")
-        self.assertEqual(result["prediction"]["sale_probability"], 0.64)
-        self.assertEqual(result["prediction"]["predicted_sale_window"], "Within 30 days")
+        article_output = result["models"]["nlp"]
+        self.assertTrue(article_output["applicable"])
+        self.assertEqual(article_output["article_count"], 1)
+        self.assertIn("seasonal sale", [item["phrase"] for item in article_output["matched_phrases"]])
+        self.assertGreater(article_output["sale_probability"], 0.5)
+        self.assertGreater(result["effective_weights"]["article"], 0)
+        self.assertEqual(result["prediction"]["expected_discount_percent"], 35)
+        self.assertIn(result["prediction"]["predicted_sale_window"], [
+            "Within 14 days", "Within 30 days", "More than 30 days"
+        ])
 
-    def test_pipeline_returns_a_usable_demo_prediction_without_history(self):
+    def test_article_abstention_uses_historical_probability_only(self):
+        result = run_prediction_pipeline(
+            self.game,
+            [{"discount_percent": 50}, {"discount_percent": 0}],
+            [{"title": "A different game", "text": "No shared publisher here."}],
+        )
+
+        self.assertFalse(result["models"]["nlp"]["applicable"])
+        self.assertNotIn("sale_probability", result["models"]["nlp"])
+        self.assertEqual(
+            result["prediction"]["sale_probability"],
+            result["models"]["historical"]["sale_probability"],
+        )
+        self.assertEqual(result["effective_weights"], {"historical": 1.0, "article": 0.0})
+
+    def test_negative_article_phrases_reduce_article_probability(self):
+        result = run_prediction_pipeline(
+            self.game,
+            [],
+            [{
+                "title": "Counter-Strike 2 price hike",
+                "text": "No discount is planned.",
+            }],
+        )
+
+        self.assertTrue(result["models"]["nlp"]["applicable"])
+        self.assertLess(result["models"]["nlp"]["sale_probability"], 0.5)
+
+    def test_missing_history_and_articles_returns_historical_only(self):
         result = run_prediction_pipeline(self.game, [], [])
 
         self.assertEqual(result["models"]["historical"]["inputs"]["history_observations"], 0)
-        self.assertEqual(result["prediction"]["sale_probability"], 0.535)
-        self.assertEqual(result["prediction"]["predicted_sale_window"], "Within 30 days")
+        self.assertFalse(result["models"]["nlp"]["applicable"])
+        self.assertEqual(
+            result["prediction"]["sale_probability"],
+            result["models"]["historical"]["sale_probability"],
+        )
+        self.assertIsNone(result["prediction"]["expected_discount_percent"])
+
+    def test_missing_history_does_not_call_xgboost(self):
+        class HistoryRequiredModel:
+            def predict(self, game, price_history):
+                raise AssertionError("XGBoost cannot build features without history")
+
+        result = run_prediction_pipeline(
+            self.game, [], [], historical_model=HistoryRequiredModel()
+        )
+
+        self.assertEqual(
+            result["models"]["historical"]["model"],
+            "dummy_historical_sales_v1",
+        )
+        self.assertEqual(result["models"]["historical"]["inputs"]["history_observations"], 0)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1501 @@
+{
+    "source":  "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/",
+    "articles":  [
+                     {
+                         "app_id":  620,
+                         "title":  "Режиссёр \"Закулисья\" заинтриговал фанатов тремя секретными проектами - среди них может быть фильм по Portal",
+                         "text":  "Valve: фанаты предполагают, что одним из них может оказаться экранизация Portal или Half-Life. Однако сам постановщик не стал раскрывать подробности и не подтвердил связь своих будущих работ с играми компании. О трёх проектах Парсонс расска",
+                         "published_at":  "2026-10-28T11:01:03.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302230563"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Portal 2 - Update",
+                         "text":  "Portal 2: - Security and exploit fixes reported via HackerOne. - Removed an obsolete URL from the Super 8 teaser.",
+                         "published_at":  "2026-09-29T18:49:59.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498235199"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "A massive cache of Valve data has reportedly leaked online, appearing to include Portal 2\u0027s elusive beta build and a potential weapon from Half-Life 2: Episode 3",
+                         "text":  "massive cache of internal builds from Valve has reportedly leaked online, including beta builds of several classic Valve titles and possible weapons from Half-Life 2 \u0027s cancelled third episode... Read more.",
+                         "published_at":  "2026-08-30T11:41:11.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1842212951307437"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Portal 2 just got a Steam Frame compatibility rating, hinting at the VR headset\u0027s imminent launch",
+                         "text":  "Portal 2 just got given its Steam Frame compatibility rating, which shows the classic Valve puzzler is rated as Playable. Read the full story on PCGamesN: Portal 2 just got a Steam Frame compatibility rating, hinting at the VR headset\u0027s imm",
+                         "published_at":  "2026-06-30T13:18:52.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1836506165562683"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Portal 2 - Update",
+                         "text":  "Portal 2. - Fixed failing to launch on Linux.",
+                         "published_at":  "2026-06-29T22:26:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165561121"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Portal 2 - Update",
+                         "text":  "Portal 2. - Fixed subtitles not playing during end credits. - Fixed not returning to the main menu when credits finish. - Security and exploit fixes reported via HackerOne.",
+                         "published_at":  "2026-06-26T15:57:03.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165554425"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Portal 2: Community Edition promises to take the game\u0027s modding potential to new heights, and it\u0027s out in open beta now",
+                         "text":  "Portal 2 is one of the easiest-to-recommend games in the entire medium, and part of that is down to the custom levels scene it\u0027s inspired for over a decade now. There are around a million on the game\u0027s Steam Workshop entry alone—and if you\u0027",
+                         "published_at":  "2026-04-18T19:58:52.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1830163047263100"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "15 years on, Portal 2 Community Edition just breathed new life into Valve\u0027s classic",
+                         "text":  "Portal 2 is 15 years old this weekend, and while that\u0027s terrifying if you remember its launch as vividly as I do, it\u0027s cause for celebration. Valve\u0027s humor-laden puzzle game is still the most pristine and easy to recommend offshoot of its g",
+                         "published_at":  "2026-04-18T16:40:53.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1830163047263814"
+                     },
+                     {
+                         "app_id":  620,
+                         "title":  "Gabe Newell stepped back from game design during Portal 2\u0027s development, because \u0027he always wanted to be part of the team, but being Gabe and being in his position, that never really worked\u0027",
+                         "text":  "Gabe Newell remains the CEO of Valve, but it\u0027s no secret that he stepped back from actively running the company some time ago: he says himself he\u0027s been \" retired for a long time .\" Newell now divides his days between various other pursuits",
+                         "published_at":  "2026-04-01T18:37:13.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1828894815555653"
+                     },
+                     {
+                         "app_id":  8930,
+                         "title":  "Cozy Up with 2K: The Autumn Sale is Live on Steam! Save Big Through Oct 8.*",
+                         "text":  "2K Autumn Sale is live on Steam, giving you the perfect excuse to trade the chilly outdoors for your cozy desktop setup. Whether you want to relive classic gaming nostalgia, reconnect with an all-time favorite, or finally cross those long-a",
+                         "published_at":  "2026-10-01T17:26:32.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656383171"
+                     },
+                     {
+                         "app_id":  8930,
+                         "title":  "Civilization 35th Anniversary Franchise Sale",
+                         "text":  "2K’s SRP. Digital only. Offers end September 17th, 2026. Terms apply. https://clan.fastly.steamstatic.com/images/45050851/8466e60730e22c184992b413232e2ce191d703e7.jpg",
+                         "published_at":  "2026-09-03T17:20:44.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842846814444152"
+                     },
+                     {
+                         "app_id":  8930,
+                         "title":  "Time to Play: The 2K Summer Sale is Officially Live on Steam",
+                         "text":  "2K Summer Sale is officially live on Steam, and it’s the perfect excuse to find your next great escape. Summer is about having the time to truly immerse yourself, dive deep into a world, and remember exactly why you fell in love with gaming",
+                         "published_at":  "2026-06-25T17:10:31.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165550866"
+                     },
+                     {
+                         "app_id":  8930,
+                         "title":  "Firaxis Anniversary Sale - Join the 30th Anniversary Celebration",
+                         "text":  "2K’s SRP. Digital only. Offers end May 14th, 2026. Terms apply.",
+                         "published_at":  "2026-04-30T17:02:26.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1831432155569004"
+                     },
+                     {
+                         "app_id":  22380,
+                         "title":  "Reported lead of Obsidian\u0027s new Fallout game wants you to feel a \"sense of agony\" when playing an RPG, rather than being an all-powerful god-splatterer",
+                         "text":  "Fallout: New Vegas director Josh Sawyer, who recently made some points about RPG building that are worth dissecting in light of his reported new gig as head of Obsidian\u0027s upcoming Fallout game. Read more",
+                         "published_at":  "2026-07-21T15:47:09.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1838407329269674"
+                     },
+                     {
+                         "app_id":  22380,
+                         "title":  "Fallout: New Vegas gets a Mojave interpretation of Oblivion\u0027s Dark Brotherhood, thanks to this assassin-focused faction quest mod",
+                         "text":  "Fallout: New Vegas , a new mod adds a whole extra faction based around being a post-apocalyptic assassin. They\u0027re dubbed the Dark Family, and you get no prizes for guessing which robed gang of Elder Scrolls dagger-enthusiasts they\u0027re based",
+                         "published_at":  "2026-07-14T11:41:58.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/Rock, Paper, Shotgun/1837955055365909"
+                     },
+                     {
+                         "app_id":  22380,
+                         "title":  "A \"Cowboy Coalition\" battle NCR corporate imperialism in this freshly released Fallout: New Vegas quest mod",
+                         "text":  "Fallout: New Vegas is a little low on folks in stetson hats whose spurs jingle, jangle, jingle, then this new quest mod will almost certainly be in your saloon. That\u0027s provided you\u0027re up for an unapologetically political story about NCR-bac",
+                         "published_at":  "2026-02-25T11:46:05.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1825727806704573"
+                     },
+                     {
+                         "app_id":  22380,
+                         "title":  "\"Step into the shoes of NPC man\" with this Fallout New Vegas mod that lets you get faction cronies to do your dirty work",
+                         "text":  "Fallout: New Vegas charm, even if it often devolves into you doing a bunch of favours if you don\u0027t want to risk ending up on the vilified naughty list for one too many accidental grenade pickpocktings. You do get some nice perks for keeping",
+                         "published_at":  "2026-02-18T10:17:42.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1825093633181882"
+                     },
+                     {
+                         "app_id":  22380,
+                         "title":  "Recently unearthed Fallout: New Vegas builds could be \"incredibly useful\" for modders, preservationists claim",
+                         "text":  "Fallout: New Vegas recently unearthed at a shop in Utah contain rare files which could be \"incredibly useful\" to expanding what modders can do with the RPG. Well, at least they doe in the estimation of the folks who claim to have found them",
+                         "published_at":  "2025-11-28T12:47:12.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1817483467039593"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria crossplay is now \"very close\" as Re-Logic prepares final submissions",
+                         "text":  "Terraria 1.4.6 update and crossplay phase one. Read the full story on PCGamesN: Terraria crossplay is now \"very close\" as Re-Logic prepares final submissions",
+                         "published_at":  "2026-10-30T12:20:56.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1847920302238740"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - October 2026",
+                         "text":  "Terrarians! It\u0027s spooky season once again - one of our favorite times of the year! We didn\u0027t quite get anything together in regards to a Halloween Contest this year, but we have a few contest ideas that might be coming your way soon - court",
+                         "published_at":  "2026-10-29T18:10:41.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302235929"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria стала трёхмерной: для игры вышел мод, превращающий её в 3D игру от первого лица",
+                         "text":  "Terraria вышел мод Terraria Unbound, который переосмысляет игру как трёхмерный опыт. Автор проекта Doctor Feelgood уже опубликовал первую публичную сборку — она задумана как играбельная демонстрация и способ собрать отзывы. В Terraria Unbou",
+                         "published_at":  "2026-10-04T20:45:45.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1845383656392058"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "The long-awaited Terraria crossplay update is finally in \"the finishing touches\" stage",
+                         "text":  "Terraria State of the Game for September 2026 confirms the first phase of crossplay testing is close, with \"a little something\" extra. Read the full story on PCGamesN: The long-awaited Terraria crossplay update is finally in \"the finishing",
+                         "published_at":  "2026-09-25T10:12:33.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1844751498224150"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - September 2026",
+                         "text":  "Terrarians! Wow, what a month it has been for our little team! A few of us went on a multi-week international odyssey (more on that below) that started with Gamescom and ended up in China! The rest of the team has been hard at work putting",
+                         "published_at":  "2026-09-24T21:47:01.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498222763"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - August 2026",
+                         "text":  "Terrarians! ​ So, 1.4.5.7 is out for PC, coming very soon for Console and Mobile - how exciting! We hope you all enjoy what is on offer with this latest Terraria update. The next few steps in our journey are pretty exciting, and we cannot w",
+                         "published_at":  "2026-08-30T20:05:25.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842212951308398"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria just surprise-dropped a massive update with dozens of new items",
+                         "text":  "Terraria update 1.4.5.7 is out now, and it\u0027s a huge upgrade with dozens of new items, big balance changes, and multiplayer improvements. Read the full story on PCGamesN: Terraria just surprise-dropped a massive update with dozens of new ite",
+                         "published_at":  "2026-08-20T10:22:12.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1841579228665270"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 1.4.5.7 - Out Now for PC! (Console/Mobile Soon)",
+                         "text":  "Terrarians! At long last, we are pleased to announce that Terraria 1.4.5.7 is out now for PC! Terraria 1.4.5.7 is the latest and last (barring any critical fixes needed) hotfix for the Bigger and Boulder update. It has a heavy focus on bala",
+                         "published_at":  "2026-08-19T20:45:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1841579228663704"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "After 10 years, Terraria\u0027s biggest mod shuts down due to an \u0027irrecoverably tainted reputation\u0027 and grooming allegations",
+                         "text":  "Terraria has a passionate and wide-spread modding community—and the jewel in its crown for many years was Calamity, a mod that was on a scope of an expansion pack, adding new bosses, weapons, and so on to the survival crafter. It\u0027s existed",
+                         "published_at":  "2026-08-11T13:51:53.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1840310314354182"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 1.4.5.7 is almost here, with gassy greatswords and trick projectiles",
+                         "text":  "Terraria update 1.4.5.7 is nearly complete, and gives us two spoilers as it prepares to roll into the crossplay launch next. Read the full story on PCGamesN: Terraria 1.4.5.7 is almost here, with gassy greatswords and trick projectiles",
+                         "published_at":  "2026-07-31T16:56:33.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1839676055889062"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - July 2026",
+                         "text":  "Terrarians! Hot enough for you out there? The way we figure it, there is no better way to dodge these insane heatwaves than getting some game time. Of course, we remain hard at work on the latest update (1.4.5.7) as well as laying the groun",
+                         "published_at":  "2026-07-30T20:08:49.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839676055886308"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 1.4.5.7 is finally giving my favorite weapon type the love it\u0027s deserved for years",
+                         "text":  "Terraria update than this. Re-Logic is currently working on a big round of balancing and additional weapon changes for the upcoming patch 1.4.5.7, with the goal of making every class feel worthwhile and fun to play. As part of that, it\u0027s fi",
+                         "published_at":  "2026-06-26T09:37:57.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1836506165553319"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - June 2026",
+                         "text":  "Terrarians! Another month in the books! It has been a hectic one indeed, between work on 1.4.5.7, doing some interviews for the Design Works book, getting ready for some upcoming events in the fall, and more. We are very ready to get what w",
+                         "published_at":  "2026-06-25T23:31:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165552129"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria: Design Works - Preorder yours today!",
+                         "text":  "TERRARIA: DESIGN WORKS {STEAM_CLAN_IMAGE}/3949769/a976cf93cd75c042c57fa321a461b61cb024aa44.jpg This premium book will chart the design and development of Terraria from its inception back in 2011 through to today, written by Christian Donlan",
+                         "published_at":  "2026-06-18T18:39:17.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1835871199305203"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 15th Anniversary Collector\u0027s Edition - Preorders are now open!",
+                         "text":  "Terrarians! As we mentioned in our 15th Anniversary post a few weeks ago, we are beyond excited to roll out a brand new Terraria Collector\u0027s Edition. We think this is a nice handful of really cool collectables that the fans will enjoy. Anyw",
+                         "published_at":  "2026-06-10T16:13:50.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1835236783558078"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "It seems Terraria\u0027s developer is as bad at making small updates as it is final ones, as it says its latest balance patch is much more than \u0027adjusting a few numbers\u0027",
+                         "text":  "Terraria finally received its gargantuan 1.4.5 patch. Three years in the making, 1.4.5 was supposed to be the final update for the long-running, massively successful survival-crafting game. But it turns out that developer Re-Logic is terrib",
+                         "published_at":  "2026-05-30T12:04:01.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1833968530893402"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "The next Terraria update \"is not just about adjusting a few numbers\"",
+                         "text":  "Terraria State of the Game has just arrived for May 2026, and developer Re-Logic has made \"a ton of progress on 1.4.5.7\" in the past month, according to the studio\u0027s Head of Business Strategy Ted \u0027Loki\u0027 Murphy. He says the next Terraria upd",
+                         "published_at":  "2026-05-29T11:49:23.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1833968530891088"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - May 2026",
+                         "text":  "Terrarians! We are back once again with the latest and greatest Terraria news. It was another eventful month - Terraria turned 15(!), we saw the teaser reveals of both the Collector\u0027s Edition and the Design Works retrospective book, and a t",
+                         "published_at":  "2026-05-28T20:36:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1833968530889388"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Re-Logic celebrate 15 years of Terraria - 70 million sales, cross-play soon and more updates to come",
+                         "text":  "Terraria with it still going strong. Read the full article here: https://www.gamingonlinux.com/2026/05/re-logic-celebrate-15-years-of-terraria-70-million-sales-cross-play-soon-and-more-updates-to-come/",
+                         "published_at":  "2026-05-18T15:33:35.0000000Z",
+                         "source":  "GamingOnLinux",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/1832700592798828"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria devs reveal the game\u0027s average playtime on PC is over 100 hours as it passes 70 million copies sold",
+                         "text":  "Terraria, I\u0027m a little shocked because it doesn\u0027t feel like I put nearly that much time into it. Turns out, those are rookie numbers anyway—in a blog post published yesterday, developer Re-Logic shared a bunch of stats and revealed that the",
+                         "published_at":  "2026-05-17T18:53:02.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1832700592796721"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "As Terraria turns 15, Re-Logic confirms crossplay is \"soon\" and that \"updates will continue beyond 1.4.6\"",
+                         "text":  "Terraria is 15 years old this weekend, in just the latest terrifying video game anniversary to make me feel ancient. That\u0027s given developer Re-Logic a moment to reflect on how far it\u0027s come, share a few of its most impressive stats, and not",
+                         "published_at":  "2026-05-17T13:34:22.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1832700592796234"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Celebrating 15 Years of Terraria!",
+                         "text":  "Terraria, without having to fall back to price increases or microtransactions. This is becoming increasingly rare in modern gaming, and we cannot thank you enough for making what we do every day possible. From the hardcore players with thou",
+                         "published_at":  "2026-05-16T19:02:27.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1832700592794921"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "New Terraria State of the Game promises fixes for its most frustrating combat problems",
+                         "text":  "Terraria State of the Game update is here, and developer Re-Logic is finally tackling some of the long-term combat frustrations that have been the bane of the sandbox game for many years. Head of Business Strategy Ted \u0027Loki\u0027 Murphy comments",
+                         "published_at":  "2026-05-01T12:12:54.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1831432155571156"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - April 2026",
+                         "text":  "Terrarians! How in the world is it almost Summer already?! It feels like 1.4.5 launch was just yesterday... Our team has been head-down working away on post launch support for 1.4.5 and we really think everyone is going to enjoy what is com",
+                         "published_at":  "2026-05-01T03:11:06.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1831432155570207"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria is getting new early game magic, as Re-Logic puts class balance under the microscope",
+                         "text":  "Terraria 1.4.5 for years, developer Re-Logic has naturally already found itself with even more ideas to cram into its ever-expanding sandbox game . The team that simply can\u0027t be stopped is continuing to add more features alongside its ongoi",
+                         "published_at":  "2026-03-27T14:42:26.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1828441623104737"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game: March 2026",
+                         "text":  "Terrarians! Spring is finally here - we think - sort of? Seriously, last week we had both 80F days and a day of snow. Come on nature, make up your mind! On a serious note, work on 1.4.5.7 continues unabated. As we mentioned previously, this",
+                         "published_at":  "2026-03-26T19:26:11.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1827626365771585"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Wave 2 of Terraria Chibichans - Preorders open until April 17",
+                         "text":  "Terraria Chibichans. We wanted to share that the preorder window will be closing on April 17th, 2026. Series Two features the Jungle Biome, with appearances by the Zoologist, Witch Doctor, Bee Armor, and more. If you order yours during the",
+                         "published_at":  "2026-03-18T16:49:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1827626365750839"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria teases \"very exciting potential\" for builders after celebrating one of its \"largest player spikes\" yet",
+                         "text":  "Terraria was said to be done and dusted. I think we all have. Yet here we are, celebrating updates that take three years to make and bring in \"almost 230,000\" players. And it\u0027s clearly still not over. Even now, in the latest monthly iterati",
+                         "published_at":  "2026-02-26T19:44:30.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1825727806708851"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria State of the Game - February 2026",
+                         "text":  "Terrarians! After a brief hiatus - because the State of the Game last month should have been pretty obvious haha - we are back again with the usual monthly update across the world of Terraria. What a time it has been since our last SOTG - T",
+                         "published_at":  "2026-02-26T16:51:04.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1825727806708235"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "New Terraria update solves secret seed confusion, brings back classic crafting, and adds a keybinding I\u0027ve wanted for years",
+                         "text":  "Terraria update has just landed that strips any confusion out of the secret seeds added in the massive Bigger and Boulder patch. Terraria 1.4.5.5 also brings back the ability to toggle back to the old-style crafting menu if you prefer it, a",
+                         "published_at":  "2026-02-11T12:29:43.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1824459501603684"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria\u0027s biggest mod manager will require months before it\u0027s fully compatible with the 1.4.5 patch: \u0027Updating tModLoader to major Terraria releases is a huge undertaking\u0027",
+                         "text":  "Terraria \u0027s long-awaited 1.4.5 update finally arrived in January, digging up a treasure trove of new features like an overhauled crafting interface, a new world seed, updated visuals, crossover items with Palworld and Dead Cells , and a vas",
+                         "published_at":  "2026-02-08T14:00:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466503434"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "How to get a Lucky Clover in Terraria",
+                         "text":  "Terraria 1.4.5 is here, and perhaps you\u0027ve picked up a new Lucky Clover or two after the Bigger and Boulder update and have no idea what to do with it. Or maybe you\u0027re more like me and Lady Luck pays you no mind, so you\u0027re cloverless and co",
+                         "published_at":  "2026-02-03T23:08:35.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466491870"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "How to get every Pal in Terraria\u0027s Palword crossover",
+                         "text":  "Terraria with the 1.4.5 update, Bigger and Boulder. Some of them are an absolute pain to get—looking at you, Foxparks—and I never found the critters in my older worlds. While I did manage to get all of the Terraria pals eventually, it only",
+                         "published_at":  "2026-01-31T01:18:12.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823191198606786"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "The Terraria 1.4.5 secrets are starting to pour in, starting with a special boss so well-hidden you\u0027ll probably miss it",
+                         "text":  "Terraria 1.4.5 secrets have you found so far? I put a couple of hours into Re-Logic\u0027s vast update last night, but I can\u0027t say that I did a great deal beyond what I\u0027d have done in previous installments. I did grab myself an acorn slingshot a",
+                         "published_at":  "2026-01-28T15:55:05.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1823191198600189"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria\u0027s ginormous, 3 years in the making 1.4.5 update is live—a full 15 years after the game was deemed finished",
+                         "text":  "Terraria is one of those PC gaming mainstays whose death will probably only come about thanks to a global mass extinction event. It just received a major new update in the form of Terraria 1.4.5, which was announced in 2022 and scheduled to",
+                         "published_at":  "2026-01-28T00:53:17.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823191198598834"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 1.4.5 the absolutely huge Bigger and Boulder update is now live",
+                         "text":  "Terraria version 1.4.5 the \"Bigger and Boulder\" update is now officially live. Read the full article here: https://www.gamingonlinux.com/2026/01/terraria-1-4-5-the-absolutely-huge-bigger-and-boulder-update-is-now-live/",
+                         "published_at":  "2026-01-27T15:53:17.0000000Z",
+                         "source":  "GamingOnLinux",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/1822556746169320"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria 1.4.5: Bigger \u0026 Boulder - Available Now!",
+                         "text":  "Terrarians! At long last, today is the day: Terraria 1.4.5 is here! What better way to kick off the year of Terraria\u0027s 15th Anniversary, right? We know the wait has been a long one, but we hope that everyone enjoys what this latest update h",
+                         "published_at":  "2026-01-27T15:16:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1822556746169234"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Here\u0027s everything new in Terraria 1.4.5, its massive Bigger and Boulder update, after three years in the making",
+                         "text":  "Terraria 1.4.5 update is finally upon us. Not only did developer Re-Logic finally stop adding new features for long enough to pin down its release date, but it\u0027s even given us a name and a trailer. The Terraria \u0027Bigger and Boulder\u0027 update m",
+                         "published_at":  "2026-01-25T17:21:00.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1822556746165595"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Terraria\u0027s long-awaited 1.4.5 patch finally has a release date, and it\u0027s this month: \u0027start the countdown\u0027",
+                         "text":  "Terraria\u0027 s highly anticipated and supposedly final 1.4.5 update finally has a release date. It\u0027s also imminent . Developer Re-Logic has set the date for January 27, less than two weeks away... Read more.",
+                         "published_at":  "2026-01-18T12:00:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1821922921819345"
+                     },
+                     {
+                         "app_id":  105600,
+                         "title":  "Multiple years later Terraria 1.4.5 has a release date for January 27th",
+                         "text":  "Terraria 1.4.5 will officially arrive January 27th and it\u0027s going to be massive. Read the full article here: https://www.gamingonlinux.com/2026/01/multiple-years-later-terraria-1-4-5-has-a-release-date-for-january-27th/",
+                         "published_at":  "2026-01-15T14:26:18.0000000Z",
+                         "source":  "GamingOnLinux",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/1821922921813209"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.22.2 STABLE Released",
+                         "text":  "Project Zomboid and click \u0027Properties\u0027, then select \u0027Game Versions \u0026 Betas\u0027 and select \u002742.21\u0027 from the list. This will automatically update your client back to version 42.21 and your save / mods should work. NEW Added ladder support Added",
+                         "published_at":  "2026-11-09T14:04:15.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643355564"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.22.2 Pre-Release Hotfix Released",
+                         "text":  "Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-11-06T14:41:13.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643345808"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.22.1 Pre-Release Hotfix Released",
+                         "text":  "Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-11-04T10:07:37.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848557880478544"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid наконец позволит пользоваться лестницами и ломами - The Indie Stone меняет подход к обновлениям",
+                         "text":  "Project Zomboid в предрелизной ветке. Оно добавляет несколько давно ожидаемых возможностей, включая работающие лестницы и применение ломов для взлома запертых дверей, окон и ворот. Заодно разработчики объявили об изменении графика выпуска о",
+                         "published_at":  "2026-10-30T06:34:39.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302237413"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid finally has working ladders and useful crowbars, as its developer begins a new era for updates",
+                         "text":  "Project Zomboid update is now available via the pre-release branch, as The Indie Stone changes release cadence for faster rollouts. Read the full story on PCGamesN: Project Zomboid finally has working ladders and useful crowbars, as its dev",
+                         "published_at":  "2026-10-28T16:49:14.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1847920302232177"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Moving on Up: 42.22 Pre-Release",
+                         "text":  "Project Zomboid on the default Stable branch, currently 42.21, while pre-release goes through final vetting. If, however, you are a modder, a multiplayer server admin or just the brave, testing-friendly type who is willing to test and break",
+                         "published_at":  "2026-10-27T15:45:01.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114049399"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid dev warns its popular new first-person mods aren\u0027t officially supported, so use at your own risk",
+                         "text":  "Project Zomboid first-person mods have become extremely popular, but The Indie Stone cautions that they aren\u0027t officially supported. Read the full story on PCGamesN: Project Zomboid dev warns its popular new first-person mods aren\u0027t officia",
+                         "published_at":  "2026-10-23T11:43:40.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1847286114036101"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "A Note on Java Mods and Modding",
+                         "text":  "Project Zomboid is huge and incredibly diverse, ranging from tiny system changes to massive overhauls. We\u0027re endlessly grateful to modders who spend their time making and maintaining mods, whether they\u0027re big or small. Recently we\u0027ve seen a",
+                         "published_at":  "2026-10-21T10:21:01.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114028340"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid получила живой мир в духе A-Life - новый мод добавляет сотни выживших и фракции",
+                         "text":  "Project Zomboid превратили суровый симулятор выживания в еще более динамичный мир с помощью масштабного мода, который добавляет полноценную систему поведения NPC и фракций. По своим возможностям мод напоминает знаменитую A-Life из S.T.A.L.K",
+                         "published_at":  "2026-10-05T05:37:54.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1845383656392610"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Build 42.21 Stable Released",
+                         "text":  "Project Zomboid community a healthier and happier place. Got feedback? Found a bug? If you’d like to give us feedback on the 42.21 update, feel free to do so via the Indie Stone forums. If you find a bug, please read this first, then post t",
+                         "published_at":  "2026-09-28T12:07:08.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498231307"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid is \"trying to move faster\" as a new update fixes vanishing zombie hordes",
+                         "text":  "Project Zomboid build 42.21 includes balance changes and bug fixes aplenty, as The Indie Stone chases a more regular stable patch rollout. Read the full story on PCGamesN: Project Zomboid is \"trying to move faster\" as a new update fixes van",
+                         "published_at":  "2026-09-25T16:26:27.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1844751498225327"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Re-population of the Dead: Build 42.21 Unstable Released",
+                         "text":  "Project Zomboid game client to access Unstable 1. Right-click Project Zomboid in your Steam Library. 2. Select “Properties”. 3. Under “Game Versions \u0026 Betas” select “Unstable”. {STEAM_CLAN_IMAGE}/4460946/f6e3f5b10e52b75e8fb54e02536be214f579",
+                         "published_at":  "2026-09-23T16:08:16.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498218925"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Ambitious new Project Zomboid mod fills the world with simulated NPC factions, inspired by Stalker",
+                         "text":  "Project Zomboid mod creates a \"persistent living world\" with autonomous NPCs and factions. Read the full story on PCGamesN: Ambitious new Project Zomboid mod fills the world with simulated NPC factions, inspired by Stalker",
+                         "published_at":  "2026-09-20T14:18:06.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1844115010499039"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.20.4 STABLE \u0026 42.19.2 UNSTABLE \u0026 41.78.21 LEGACY Hotfixes Released",
+                         "text":  "Project Zomboid Discord server, explaining how you were using them As always, discussions regarding this update can be found pinned to the Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-08-26T11:12:26.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842212951296601"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.20.3 STABLE Hotfix Released",
+                         "text":  "Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-08-17T12:18:24.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840944183785895"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.20.2 STABLE Hotfix Released",
+                         "text":  "Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-08-05T15:05:38.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840310314339441"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.20.1 STABLE Hotfix Released",
+                         "text":  "Project Zomboid Discussions Forums here.",
+                         "published_at":  "2026-08-05T10:07:30.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840310314338766"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Perennial early access game Project Zomboid hit a new concurrent player record after a huge map update added reworked towns, a spooky orphanage and \u0027400 procedural basements\u0027",
+                         "text":  "Project Zomboid , the wildly successful zombie survival sim that, like a doomsday prepper holed up in a fortified basement, simply refuses to leave Steam early access. Its first major build update since 2021 coincided with a slight price in",
+                         "published_at":  "2026-08-02T13:00:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1839676055892605"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid soars to a new Steam high after 19-month wait for an update, but its dev won\u0027t rush the next one",
+                         "text":  "Project Zomboid build 42 update arrived this week, and it\u0027s carried the zombie survival game to its highest ever Steam player count. Read the full story on PCGamesN: Project Zomboid soars to a new Steam high after 19-month wait for an updat",
+                         "published_at":  "2026-08-02T10:08:59.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1839676055892396"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid peaks at 124k players",
+                         "text":  "Project Zomboid has peaked at 124,995 concurrent players on 9 August 2026. View charts and more statistics on our website.",
+                         "published_at":  "2026-08-09T19:55:04.0000000Z",
+                         "source":  "SteamDB",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/1839676055882911"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "The massive Project Zomboid Build 42 is out now",
+                         "text":  "Project Zomboid just had a big free upgrade with Build 42 now out in the stable branch, bringing with it an overhaul to various parts of the game. Read the full article here: https://www.gamingonlinux.com/2026/07/the-massive-project-zomboid",
+                         "published_at":  "2026-07-29T11:39:32.0000000Z",
+                         "source":  "GamingOnLinux",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/1839676055882306"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid build 42 is finally here, and it adds animals, basements, and deeper crafting",
+                         "text":  "Project Zomboid build 42 is finally here after over a year\u0027s wait, and it promises to be a huge one, with loads of features to explore. Read the full story on PCGamesN: Project Zomboid build 42 is finally here, and it adds animals, basement",
+                         "published_at":  "2026-07-29T11:00:21.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1839676055882404"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "B42 CHECKLIST",
+                         "text":  "Project Zomboid!This is a quick post to ensure that those who want to continue playing Build 41 are aware of how they can do so with minimal disruption, and indeed to tick off a few other items to be aware of.Apologies for the overall borin",
+                         "published_at":  "2026-07-28T12:58:13.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839041357038237"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "42.20: The Big Glow Up",
+                         "text":  "Project Zomboid will see the rest of the map overhauled to the same rigorous high level: An idiosyncratic style for each townAll buildings and houses are now uniqueConsistent landscaping between buildingsUnique tiles where necessaryFor more",
+                         "published_at":  "2026-07-27T17:53:25.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839041357036410"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "The massive Project Zomboid \u0027Build 42\u0027 update confirmed for July 29",
+                         "text":  "Project Zomboid is set to level up in a huge way with the proper release of Build 42 on July 29th. Read the full article here: https://www.gamingonlinux.com/2026/07/the-massive-project-zomboid-build-42-update-confirmed-for-july-29/",
+                         "published_at":  "2026-07-24T14:36:35.0000000Z",
+                         "source":  "GamingOnLinux",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/1839041357029772"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "BUILD 42 STABLE PLANS",
+                         "text":  "Project Zomboid version 42.20 will be coming direct to the stable public branch Wednesday, the 29th of July. Details on what this will entail will follow after, by way of celebration, the unveiling of our new Build 42 Steam Store trailer! T",
+                         "published_at":  "2026-07-24T12:38:50.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839041357029453"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "After 19 months of waiting, Project Zomboid\u0027s next update will finally deliver a stable build, \"and it\u0027s a big one\"",
+                         "text":  "Project Zomboid build 42, The Indie Stone says its next update will come to stable as the new Steam default. Read the full story on PCGamesN: After 19 months of waiting, Project Zomboid\u0027s next update will finally deliver a stable build, \"an",
+                         "published_at":  "2026-07-10T15:20:40.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1837955055357222"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "REINFORCING THE BARRICADES",
+                         "text":  "Project Zomboid would be moving to external localization for Build 42 and beyond. However, after trying this process out and then mixing in many separate changes and recent improvements to our workflow, we believe that the extended future o",
+                         "published_at":  "2026-05-29T10:09:23.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1833968530890581"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "SPRING IS HERE",
+                         "text":  "The Indie Stone The Block of Italicised Text would like to direct your attention to the PZ Wiki should you feel like editing or amending something. You can also find us on Bluesky, or on our Discord and Reddit here! If you fancy you can sig",
+                         "published_at":  "2026-05-08T20:18:06.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1832065502816211"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "A new Project Zomboid update could make multiplayer servers much more deadly",
+                         "text":  "Project Zomboid update is about to make your sandbox adventures more varied, and your multiplayer lobbies a whole lot more terrifying. Developer The Indie Stone has been cooking up fresh overhauls for its zombie game , and says that Project",
+                         "published_at":  "2026-04-19T15:34:57.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1830163047264305"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Charity Merch Update",
+                         "text":  "Project Zomboid community, we were able to raise more than $180,000 (USD) to support the amazing and important work of MSF! In addition to this, our merch partner Makeship contributed a further 5% of all proceeds! A big thank you to everyon",
+                         "published_at":  "2026-04-14T15:18:00.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1829528821318104"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid bans rogue mods deploying \"malicious code\" to players\u0027 PCs",
+                         "text":  "Project Zomboid developer The Indie Stone has confirmed that it has identified and taken action against a series of mods for the zombie game that were \"creating malicious files outside of the Project Zomboid directory.\" The mods in question",
+                         "published_at":  "2026-04-09T14:04:04.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1829528821306850"
+                     },
+                     {
+                         "app_id":  108600,
+                         "title":  "Project Zomboid identifies and bans over a dozen Steam Workshop mods containing \u0027heavily obfuscated code\u0027 that was \u0027creating malicious files\u0027",
+                         "text":  "Project Zomboid , I\u0027ve got an important news alert for you. Check the list below to see if you downloaded and installed any of the 14 Steam Workshop mods developer The Indie Stone says contain \"heavily obfuscated code\" that was \"creating ma",
+                         "published_at":  "2026-04-08T23:03:59.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1829528821305332"
+                     },
+                     {
+                         "app_id":  203160,
+                         "title":  "Pre-Purchase is now open for Tomb Raider: Legacy of Atlantis",
+                         "text":  "Crystal Dynamics and Flying Wild Hog deliver jaw-dropping visuals powered by Unreal Engine 5, modern game design, and new surprises, while honoring the spirit and atmosphere of Lara\u0027s debut adventure.Every environment has expanded in a way",
+                         "published_at":  "2026-06-04T18:06:19.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1834602721188386"
+                     },
+                     {
+                         "app_id":  203160,
+                         "title":  "Tomb Raider is fine, Crystal Dynamics says, as it lays off employees for the fourth time in the past 12 months",
+                         "text":  "Crystal Dynamics has laid off 20 more people, \"split between some development personnel and some central operations roles.\".. Read more.",
+                         "published_at":  "2026-03-19T19:21:05.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1827626365755502"
+                     },
+                     {
+                         "app_id":  203160,
+                         "title":  "Lara Croft Returns",
+                         "text":  "Crystal Dynamics To stay updated, follow us on:· TikTok· You...",
+                         "published_at":  "2025-12-12T18:56:10.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1818752592128519"
+                     },
+                     {
+                         "app_id":  203160,
+                         "title":  "Crystal Dynamics reveal two new Tomb Raider games -\"the largest Tomb Raider world yet\" and yet another classic TR revamp",
+                         "text":  "Crystal Dynamics have announced a pair of Tomb Raider games - Tomb Raider: Catalyst, the next major new instalment in Lara Croft\u0027s adventures, and the previously leaked Tomb Raider: Legacy Of Atlantis, \"a fully reimagined version\" of Core D",
+                         "published_at":  "2025-12-12T03:15:55.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1818752592125810"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Steam Halloween Sale X Dying Light now on SALE!",
+                         "text":  "Dying Light is now on sale!Dive into the complete Dying Light experience with hauntingly good deals during the Steam Halloween Sale!",
+                         "published_at":  "2026-10-26T18:07:38.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114046170"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Anniversary AMA with our CEO kicks off in just an hour!",
+                         "text":  "Dying Light: The Beast Anniversary AMA with our CEO kicks off in just an hour! 🚀Get ready! Paweł Marchewka — Techland’s Founder and CEO since the very beginning, leading the creative vision for every single game we\u0027ve created — will be joi",
+                         "published_at":  "2026-10-14T13:59:15.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706674373"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Ask Me Anything Session With Techland CEO on Discord! Join and ask away!",
+                         "text":  "Techland CEO Paweł Marchewka! 🔥Drop your questions directly in our AMA channel and come back on October 14, when Paweł will jump into the chat and start answering as many as he can. Don’t miss it!https://discord.com/invite/dyinglight",
+                         "published_at":  "2026-10-08T14:21:29.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846018067929882"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Сценарист Dying Light раскритиковал современные зомби-игры за отсутствие живых персонажей",
+                         "text":  "Dying Light, поделился мнением о творческом застое в современных зомби-экшенах. Выступая на фестивале Meadowlark Comic Con, автор обратил внимание на то, что подавляющее большинство проектов в постапокалиптическом сеттинге превратились в ме",
+                         "published_at":  "2026-10-06T19:08:04.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1845383656397417"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Autumn Sale 2026: Dying Light Promo",
+                         "text":  "Dying Light franchise are now available at amazing discounts. Don\u0027t miss your chance to grab Dying Light games at great prices!Dive into a world of action and survival with these exclusive deals. Head over to Steam and check out the full of",
+                         "published_at":  "2026-10-01T17:00:57.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656382419"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Dying Light: The Beast - ANNIVERSARY STEAM SALE!",
+                         "text":  "Dying Light universe with our Anniversary Steam Sale! 🧟 Get Dying Light: The Beast at 50% off and experience the thrill of Castor Woods. Plus, explore the entire franchise with our exclusive bundle deal featuring first Dying Light and Dyin",
+                         "published_at":  "2026-09-14T17:00:40.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1843481262702405"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Techland Summer Sale",
+                         "text":  "Dying Light adventure waiting for you. Every destination offers stunning views, unforgettable stories... and just a few infected along the way. The Steam Summer Sale is now live, with up to 80% off across the Dying Light franchise. It\u0027s als",
+                         "published_at":  "2026-07-03T08:32:54.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165569867"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "📢 Community Survey: Help Us Shape the Future of Dying Light!",
+                         "text":  "Dying Light franchise the ultimate zombie survival experience - and to do that, we need your help!What is at the absolute top of your wishlist? What features make your jaw drop, what mechanics need a tune-up, and what are your biggest expec",
+                         "published_at":  "2026-05-22T15:26:56.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1833334318572118"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "DYING LIGHT FIX 1.55",
+                         "text":  "Dying Light, which addresses an issue that occurred when loading saves from The Following launching the game in the Slums. Make sure you download the latest version of the game - 1.55.",
+                         "published_at":  "2026-03-19T13:28:40.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1827626365753348"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "Super Crane and Low Gravity events are back!",
+                         "text":  "Dying Light turns 11, and we want to celebrate it with you by bringing back two classic time-limited events. They will be available from February 12 to February 26.The first week marks the return of Super Crane. During the event, your grapp",
+                         "published_at":  "2026-02-12T12:05:12.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1824459501606609"
+                     },
+                     {
+                         "app_id":  239140,
+                         "title":  "The Steam Awards 2025: We Need You!",
+                         "text":  "Dying Light: Retouched Update, enhancing the game’s visuals and audio to deliver an even richer experience for returning players.None of us at Techland could have imagined back in 2015 that the original game would still have such a passiona",
+                         "published_at":  "2025-11-24T18:00:54.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1816849002020822"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Indiana: Meet the Team",
+                         "text":  "American Truck Simulator! They have all prepared a short message for you, sharing a little bit about their background and what they are currently working on for the Hoosier State. If you\u0027ve missed it, we have previously also shown you a blo",
+                         "published_at":  "2026-11-20T16:00:57.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110432810"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS Software показала восемь поселений в переработке Невады для American Truck Simulator",
+                         "text":  "American Truck Simulator. На этот раз разработчики представили восемь поселений, которые игроки смогут посетить во время путешествий по штату. В подборку вошли как исторические города, так и живописные курорты. Например, Калиенте на юго-вос",
+                         "published_at":  "2026-11-19T19:23:14.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1849827110429680"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Nevada Rework Project: Settlements",
+                         "text":  "American Truck Simulator! The Silver State is home to a wide variety of communities, each with its own history, character, and surroundings. From historic mining towns and railway communities to beautiful lakeside destinations, there is ple",
+                         "published_at":  "2026-11-19T16:00:24.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110428942"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Cruising South Dakota Event Extended",
+                         "text":  "American Truck Simulator! To give our #BestCommunityEver more time to hit the roads and contribute to the community goal, we\u0027ve decided to extend the event until January 17, 2027, at 23:59 UTC.This means you have more time to complete your",
+                         "published_at":  "2026-11-17T16:00:48.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849458702694262"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "American Truck Simulator получит дополнение British Columbia - разработчики показали мосты канадской провинции",
+                         "text":  "American Truck Simulator продолжают знакомить игроков с дополнением British Columbia. На этот раз авторы посвятили отдельный выпуск блога мостам провинции, которые водители смогут увидеть во время путешествий по её дорогам. Среди них есть к",
+                         "published_at":  "2026-11-16T08:07:27.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1849458702688620"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS On The Road: Poznan Game Arena 2026 Vlog",
+                         "text":  "American Truck Simulator. From exploring the landscapes of the Iceland DLC and British Columbia DLC to experiencing the upcoming Coaches DLC, there was plenty for everyone to enjoy. Our 4D motion simulators also proved to be a popular attra",
+                         "published_at":  "2026-11-15T16:00:25.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849458702686613"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "British Columbia: Bridges",
+                         "text":  "American Truck Simulator, as today we will be taking a look at the beautiful bridges we have been preparing for this DLC! British Columbia is home to many stunning bridges, some set in the most scenic locations across Canada, while others h",
+                         "published_at":  "2026-11-13T16:00:00.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849192144187894"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Route 66 Paint Jobs Pack Release",
+                         "text":  "American Truck Simulator, celebrating the 100th anniversary of the legendary highway, while contributing to a good cause!During its heyday, Route 66 stretched 2,448 miles from Chicago to Los Angeles, becoming one of the most iconic highways",
+                         "published_at":  "2026-11-11T18:05:46.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849192144179774"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "2025 RAM 1500 Laramie появится в American Truck Simulator с DLC Road Trip: RAM \u0026 Dodge",
+                         "text":  "American Truck Simulator в грядущем дополнении Road Trip: RAM \u0026 Dodge. Это полноразмерный американский пикап с просторным салоном, внушительным дизайном и мощным двигателем. В длину машина превышает 20 футов (более 6 метров), а в ширину — п",
+                         "published_at":  "2026-11-09T23:37:30.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1848664643357446"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Road Trip: RAM \u0026 Dodge - 2025 RAM 1500 Laramie",
+                         "text":  "American Truck Simulator with the upcoming release of the Road Trip: RAM \u0026 Dodge DLC!The 2025 RAM 1500 Laramie is a full-size American pickup with a spacious cabin, bold styling, and plenty of power under the hood. Its wide body, tall profi",
+                         "published_at":  "2026-11-09T16:00:40.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643356026"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS On The Road: Interview with Wujek Bohun",
+                         "text":  "American Truck Simulator! From his favourite DLCs to some of the features and improvements he\u0027d love to see in the future, we covered plenty of interesting topics. We recommend turning on the subtitles on YouTube, as this interview was reco",
+                         "published_at":  "2026-11-07T16:00:15.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643349880"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Pinktober 2026 Update",
+                         "text":  "American Truck Simulator, we have raised 32,000 USD!This achievement wouldn\u0027t have been possible without you. Every charity pack purchased, every screenshot shared, and every bit of awareness spread throughout the community helped contribut",
+                         "published_at":  "2026-11-06T16:00:16.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643346262"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Для American Truck Simulator вышло обновление 1.62 - с туристическими стендами и улучшенными материалами",
+                         "text":  "American Truck Simulator. Патч уже доступен в Steam, а разработчики поблагодарили всех, кто участвовал в открытой бете и помогал искать ошибки. Главное нововведение касается функции Атлас из недавнего DLC Road Trip: Ford. В игре появились н",
+                         "published_at":  "2026-11-03T09:29:56.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302251283"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "American Truck Simulator: 1.62 Update Release",
+                         "text":  "American Truck Simulator is now released and available on Steam!Before we get into the details of the new features, we would like to send a huge thank you to everyone who participated in the Open Beta and helped report any bugs or other iss",
+                         "published_at":  "2026-11-03T08:40:21.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302251155"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "DLC Road Trip привезёт в American Truck Simulator классический Dodge Charger 500 1970 года",
+                         "text":  "American Truck Simulator. В блоге разработчики рассказали об истории автомобиля и его особенностях в игре. Dodge Charger 500 представили в 1969 году как версию второго поколения Charger с улучшенной аэродинамикой для гонок NASCAR. У модели",
+                         "published_at":  "2026-11-01T17:20:40.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302245497"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "DLC Road Trip привезёт в American Truck Simulator классический Dodge Charger 500 1970 года",
+                         "text":  "American Truck Simulator. В блоге разработчики рассказали об истории автомобиля и его особенностях в игре. Dodge Charger 500 представили в 1969 году как версию второго поколения Charger с улучшенной аэродинамикой для гонок NASCAR. У модели",
+                         "published_at":  "2026-10-31T15:59:07.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302242541"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "RAM \u0026 Dodge: 1970 Dodge Charger",
+                         "text":  "American Truck Simulator, we\u0027re bringing the 1970 Dodge Charger 500 to the road.The Dodge Charger 500 was introduced in 1969 as a performance-focused version of the second-generation Charger, developed with improved aerodynamics in mind for",
+                         "published_at":  "2026-10-30T16:00:45.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302239177"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Road Trip: Ford Community Spotlight",
+                         "text":  "American Truck Simulator, it has been fantastic to see so many of you swapping big rigs for four wheels and setting out to explore the USA in a whole new way! From scenic drives and sightseeing stops to screenshots, videos and stories from",
+                         "published_at":  "2026-10-27T16:00:47.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114049454"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "American Truck Simulator: 1.62 Update Open Beta",
+                         "text":  "American Truck Simulator is now available to try and test! If you would like to take part, we would really appreciate your help in reporting any bugs you may encounter in the appropriate section(s) of our official forums.Every report and pi",
+                         "published_at":  "2026-10-20T07:46:15.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706694100"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "1.62 Update: Road Trip - Tourist Boards Update",
+                         "text":  "American Truck Simulator in the brand-new Ford cars included with the Road Trip: Ford DLC, released last month. And if you have been enjoying the Atlas feature that comes with the DLC, we have more in store for you!With the 1.62 update, we",
+                         "published_at":  "2026-10-19T15:00:36.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706690641"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Return to Brackenreach Event",
+                         "text":  "American Truck Simulator, whether you are returning or entering the realm for the first time. Adventure and new rewards await, so let\u0027s roll! This year, we are asking our #BestCommunityEver to work together towards a combined community goal",
+                         "published_at":  "2026-10-15T07:41:33.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706676678"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS Software показала города Британской Колумбии в DLC British Columbia для American Truck Simulator",
+                         "text":  "American Truck Simulator. Команда продолжает воссоздавать локации канадской провинции — от крупных городских центров до отдалённых районов, у каждого из которых свои пейзажи, отрасли и уклад жизни. Кранбрук расположен в регионе Ист-Кутеней",
+                         "published_at":  "2026-10-13T17:38:30.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1846018067944921"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "British Columbia Cities #2",
+                         "text":  "American Truck Simulator. Missed out on the first part of this blog? You can check it out here! Our team has been hard at work recreating locations across BC, Canada. From larger urban centres to more remote areas, each offers its own lands",
+                         "published_at":  "2026-10-13T15:00:17.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846018067944324"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Poznan Game Arena 2026",
+                         "text":  "American Truck Simulator and Euro Truck Simulator 2.For American Truck Simulator, you\u0027ll be able to explore the breathtaking landscapes of the British Columbia DLC by taking a virtual journey through Canada\u0027s westernmost province. Meanwhile",
+                         "published_at":  "2026-10-11T15:01:01.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846018067938680"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "1.62 Update: Improved Material System",
+                         "text":  "American Truck Simulator, two more trucks will benefit from this upgrade, bringing further visual refinements to their interiors. We hope you\u0027ve been enjoying the Improved Material System and the refreshed look it brings to the interiors of",
+                         "published_at":  "2026-10-09T15:00:44.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846018067933606"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "South Dakota: Community Spotlight",
+                         "text":  "American Truck Simulator, we’ve loved seeing all of your screenshots, videos, reviews, and trucking adventures from across the Mount Rushmore State. Watching our community explore this new expansion has been incredibly rewarding for our tea",
+                         "published_at":  "2026-10-06T15:00:55.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656396741"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Pinktober 2026",
+                         "text":  "American Truck Simulator.As in previous years, 100% of the income from these DLCs will be donated to the Alliance of Women with Breast Cancer at the end of October. The organization works to support and empower people affected by breast can",
+                         "published_at":  "2026-10-01T15:00:36.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656381678"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Nevada Rework Project: Biggest Cities",
+                         "text":  "American Truck Simulator and how our team has rebuilt them from the ground up, bringing more detail, improved \u0026 updated road networks, and plenty of new places to discover along the way. Let\u0027s check it out! RenoFirst stop, Reno! Known as \"T",
+                         "published_at":  "2026-09-30T15:00:24.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656377933"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Для American Truck Simulator вышло дополнение Road Trip: Ford - с машинами и режимом Car Mode",
+                         "text":  "American Truck Simulator. Это первое дополнение в рамках проекта Road Trip, анонсированного в апреле прошлого года. Вместе с ним в игре открывается режим Car Mode и личные автомобили, на которых можно взглянуть на игру под новым углом. Игро",
+                         "published_at":  "2026-09-30T08:07:12.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1845383656376722"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Для American Truck Simulator вышло DLC Road Trip: Ford с легковым транспортом и туризмом",
+                         "text":  "American Truck Simulator дополнение Road Trip. Новое расширение добавляет в игру туристический режим, позволяющий временно сменить грузовую технику на легковой транспорт для поездок по знаковым локациям США. Пользователям доступны интеракти",
+                         "published_at":  "2026-09-30T08:05:28.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1845383656376723"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Road Trip: Ford DLC Release",
+                         "text":  "American Truck Simulator!The Road Trip: Ford DLC IS NOW RELEASEDWe first announced project Road Trip in April last year, and since then, it has been eagerly awaited by our #BestCommunityEver. A dedicated team was formed to bring this brand-",
+                         "published_at":  "2026-09-29T08:00:31.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498233451"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS On The Road: Star Nation Experience 2026",
+                         "text":  "American Truck Simulator community. Today, we bring you an SCS On The Road episode where you can watch what the whole amazing event looked like! Beny and Oscar travelled all the way to Bend, Oregon, to represent SCS at the wonderful Star Na",
+                         "published_at":  "2026-09-27T15:00:30.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498229357"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Coaches \u0026 Road Trip: Mode Switch",
+                         "text":  "American Truck Simulator; Mode Switch. This feature helps bring different types of gameplay together, allowing you to move between your trucking career and new adventures behind the wheel of a car or coach!ETS2 \u0026 ATS are expanding beyond tr",
+                         "published_at":  "2026-09-25T15:00:05.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498224837"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Вышло дополненеие South Dakota для American Truck Simulator - дополнение принесло Рашмор, Блэк-Хилс и новый ивент",
+                         "text":  "American Truck Simulator уже доступно в Steam. Оно приносит локальные отрасли, бескрайние прерии, живописные пейзажи и одни из самых узнаваемых достопримечательностей США. Игроков ждут 13 воссозданных городов, включая Су-Фолс, Рапид-Сити и",
+                         "published_at":  "2026-09-25T08:49:18.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1844751498223855"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "South Dakota DLC Release",
+                         "text":  "American Truck Simulator has arrived, bringing local industries, rolling prairies, stunning scenery, and some of America’s most recognisable landmarks to your journeys.The South Dakota DLC is released and available on Steam! It’s been an ex",
+                         "published_at":  "2026-09-24T08:01:39.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498220573"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "SCS Software представила трейлер дополнения \"Road Trip: Ford\" для American Truck Simulator - релиз 29 сентября",
+                         "text":  "American Truck Simulator готовят для игроков нечто особенное. Уже совсем скоро, 29 сентября 2026 года, выйдет долгожданное дополнение «Road Trip: Ford», которое кардинально изменит привычный игровой процесс. На этот раз вместо привычного тя",
+                         "published_at":  "2026-09-20T19:22:45.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1844115010499712"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "Road Trip: Ford Release Date \u0026 Video Trailer Reveal",
+                         "text":  "American Truck Simulator! It\u0027s time to grab a different set of keys and hit the road in amazing vehicles that are a little different than what you\u0027ve been used to. We\u0027re excited to announce that the Road Trip: Ford DLC for American Truck Si",
+                         "published_at":  "2026-09-20T15:05:23.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844115010499073"
+                     },
+                     {
+                         "app_id":  270880,
+                         "title":  "World of Trucks: Cruising South Dakota Event",
+                         "text":  "American Truck Simulator, the community goal is to drive 150,000,000 miles (241,402,000 km) while delivering cargoes to or from any city in South Dakota.When a player has completed deliveries to or from all 13 South Dakota cities, they will",
+                         "published_at":  "2026-09-19T15:00:10.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844115010497308"
+                     },
+                     {
+                         "app_id":  284160,
+                         "title":  "В BeamNG.drive можно отправиться в кругосветное путешествие - мод воссоздаёт Землю в масштабе 1:1",
+                         "text":  "BeamNG.drive вышел BeamNG.Earth — модификация, превращающая всю планету в единую игровую карту. Она позволяет начать поездку практически в любой точке мира, прокатиться по знакомым улицам и отправиться в другую страну, не переключаясь между",
+                         "published_at":  "2026-10-26T15:24:52.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847286114045336"
+                     },
+                     {
+                         "app_id":  284160,
+                         "title":  "BeamNG.drive (PS5) Review",
+                         "text":  "BeamNG.drive has spent over a decade as the PC crowd’s favourite way to turn a plethora of vehicles into what can be best described as a bunch of crumpled accordions. Its soft-body physics are the main selling point of the game, and it gain",
+                         "published_at":  "2026-10-19T14:00:00.0000000Z",
+                         "source":  "CGMagazine",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/CGMagazine/1846651706690437"
+                     },
+                     {
+                         "app_id":  284160,
+                         "title":  "BeamNG.drive just had a graphics overhaul so we can finally watch a family hatchback navigate a speedbump at 100mph with dynamic ambient lighting",
+                         "text":  "BeamNG.drive, a mainstay of our list of the best racing games thanks to its dedication to being a vehicular sandbox for soft-body crash-damage enthusiasts, as well as its PvP and modability, just had its biggest update . The patch includes",
+                         "published_at":  "2026-07-30T03:12:14.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1839676055884123"
+                     },
+                     {
+                         "app_id":  284160,
+                         "title":  "Hotfixes for v0.38 Released",
+                         "text":  "BeamNG as stable and safe as we can. These changes are preventative, not a reaction to a specific incident, and no further action is needed beyond installing the update. As a reminder, please make sure to keep your OS up-to-date and antivir",
+                         "published_at":  "2025-12-15T16:56:14.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1818752592133475"
+                     },
+                     {
+                         "app_id":  284160,
+                         "title":  "A Heavy Haul in BeamNG.drive v0.38",
+                         "text":  "Greetings, drivers, and welcome to our heavyweight holiday haul! Get ready to steel the season’s joy with, not one, but two brand-new vehicles, complimentary props and loads, Italy map expansion, continued user interface revamp, as well as",
+                         "published_at":  "2025-12-10T11:25:45.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1818752592120408"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "ConcernedApe обещает самое крупное обновление в истории Stardew Valley - релиз ожидается в 2027 году",
+                         "text":  "Stardew Valley Эрик Барони, известный как ConcernedApe, поделился новыми подробностями обновления 1.7. По его словам, оно может стать крупнейшим за всю историю фермерского симулятора и окажется значительно масштабнее, чем версии 1.5 и 1.6.",
+                         "published_at":  "2026-11-03T11:59:04.0000000Z",
+                         "source":  "PlayGround.ru - официальная группа",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PlayGround.ru - официальная группа/1847920302251679"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "You can now play Stardew Valley in 3D or VR, thanks to this new mod",
+                         "text":  "Stardew Valley in VR or 3D. Read the full story on PCGamesN: You can now play Stardew Valley in 3D or VR, thanks to this new mod",
+                         "published_at":  "2026-07-29T14:16:49.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1839676055882690"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "The best farm sims and games like Stardew Valley",
+                         "text":  "Why : The level of heart and detail in the character dialogue is unmatched... Read more.",
+                         "published_at":  "2026-07-21T19:09:43.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1838407329269905"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "\u0027I\u0027m in this whole new world\u0027: Here\u0027s what Eric Barone had to say about the life-changing Stardew Valley 10 years ago this month",
+                         "text":  "Stardew Valley. You can see how developer Eric Barone was just realizing how life-changing Stardew would prove to be, and many of the game\u0027s now-beloved features, like multiplayer, were still to come in the future. .. Read more.",
+                         "published_at":  "2026-07-13T19:59:39.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1837955055364365"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Help, I can\u0027t decide if Stardew Valley in 3D is amazing or horrifying",
+                         "text":  "Stardew Valley mods . For instance, not long ago I played a mod where I could open my own grocery store and make Pierre buy my seeds for a change, dammit! It was satisfying... Read more.",
+                         "published_at":  "2026-07-08T22:33:57.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1836506165581818"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley doesn\u0027t have any microtransactions because Eric Barone values the player \u0027more than the money I could squeeze out of everyone\u0027",
+                         "text":  "Stardew Valley celebrated its 10 year anniversary earlier this year, and after over a decade of supplying fans with feel good farming its creator Eric \"ConcernedApe\" Barone has reflected over what keeps him happy and why the sim stays so af",
+                         "published_at":  "2026-05-19T10:48:09.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1832700592800626"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley creator Eric Barone would never use AI, instead wants to rely on human creativity—\u0027I feel like that should take priority over a soulless machine\u0027",
+                         "text":  "Stardew Valley , one of the most impactful indie games of the last decade and dev behind the upcoming highly anticipated Haunted Chocolatier , knows a thing or two about being creative. And like many other creatives he\u0027s recently been touti",
+                         "published_at":  "2026-05-15T12:58:56.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1832700592791934"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "No, Eric Barone is not adding infidelity to Stardew Valley, although he did briefly consider letting you ruin marriages, to Grandpa\u0027s deep disappointment",
+                         "text":  "Stardew Valley may soon let players divorce or cheat on their in-game spouses, Eric Barone has embarked upon a social media blitz to say no, that\u0027s not actually happening, and asking everyone to please calm down about it... Read more.",
+                         "published_at":  "2026-05-13T22:31:59.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1832700592787625"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "All about Clint: Stardew Valley gift guide, schedule, and events",
+                         "text":  "Stardew Valley update, but that doesn\u0027t mean you have to wait to befriend Pelican Town\u0027s resident blacksmith. He\u0027s available to visit starting from day one of your new life in the valley, and his smithy isn\u0027t a long trip from home... Read m",
+                         "published_at":  "2026-04-10T22:29:01.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1829528821311357"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "I opened my own store in Stardew Valley so now Pierre has to buy my seeds. MY SEEDS",
+                         "text":  "Stardew Valley, I think I would have said \"fine.\" I don\u0027t particularly like him but I don\u0027t have any specific gripes against him, either. My biggest issue is probably that he opens his store at 9 am and I\u0027m up at 6 am every day, so if I hea",
+                         "published_at":  "2026-03-31T17:27:16.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1828441623112938"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "\u0027There are no leaks\u0027, says Stardew Valley creator, taking a hammer to the rumour mill",
+                         "text":  "Stardew Valley 1.7 is a hotly anticipated patch to a game, and for good reason—it\u0027s one of the biggest indie sensations of the past decade. Riling up the anticipation is the fact that it usually takes years for big updates like this to drop",
+                         "published_at":  "2026-03-27T12:06:15.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1828441623104371"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley farmer takes advice from AI, ends up brewing 136 useless bottles of rice juice",
+                         "text":  "Stardew Valley player wastes a bunch of time and resources because a Google AI summary lied to their face... Read more.",
+                         "published_at":  "2026-03-25T22:08:17.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1827626365769127"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley and Wordle sure do make for a cute combination in this daily guessing game on the farm sim\u0027s crops",
+                         "text":  "Stardew Valley and Wordle—is one of the best I\u0027ve seen yet... Read more.",
+                         "published_at":  "2026-03-10T22:13:22.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1826992588588087"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "All about Sandy: Stardew Valley gift guide, schedule, and events",
+                         "text":  "Stardew Valley after the 1.7 update, when she joins Clint as one of two new marriage candidates. But before then, what if you want to get to know Sandy a little better? Maybe feel out her personality before tying the knot?.. Read more.",
+                         "published_at":  "2026-03-06T23:42:21.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1826362059925829"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley\u0027s soundtrack is the game\u0027s unsung hero, and nails the surprisingly difficult task of making a cosy game\u0027s music memorable",
+                         "text":  "Stardew Valley turned 10 this week , didn\u0027t it? That feels sort of wild to think about. I didn\u0027t jump into the game until around 12 months later, but that\u0027s still nine entire years that this game has been in my life. It\u0027s certainly not been",
+                         "published_at":  "2026-03-01T17:00:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806715581"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley has basically become the Tolkien of cozy gaming",
+                         "text":  "It happens multiple times a week in online fantasy reader circles: Someone says they\u0027re new to fantasy, or a former avid reader returning as an adult, or otherwise looking to join the space by asking what they should read first. The answer",
+                         "published_at":  "2026-02-28T13:30:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806713322"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "I went on a serious cottagecore Stardew Valley mod hunt and now I\u0027ve got the cozy farm of my dreams for my next save",
+                         "text":  "Stardew Valley continued a farming life obsession that started with Harvest Moon in my childhood, and I never seem to stay away for long. That\u0027s partially thanks to ConcernedApe\u0027s endless cycle of updates, and partially because the Stardew",
+                         "published_at":  "2026-02-27T21:22:37.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806712028"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "ConcernedApe finds out not everyone will be hot for the blacksmith in Stardew Valley\u0027s upcoming 1.7 update: \u0027You\u0027ve all been dying to marry Clint... right? ...guys?\u0027",
+                         "text":  "Stardew Valley creator Eric \u0027ConcernedApe\u0027 Barone celebrated the farming sim\u0027s 10-year anniversary last night with a fantastic video that dives into the game\u0027s past and looks ahead to its future. What shocked me most was how much the bones",
+                         "published_at":  "2026-02-27T17:12:35.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806711558"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "All the Stardew Valley 10th anniversary announcements, including new romance options and a giant Pelican Town desk mat to replace your map keybinds",
+                         "text":  "Stardew Valley 10th anniversary festivities began last year when creator Eric \u0027ConcernedApe\u0027 Barone revealed his plans for another farm-sim update, but today is the game\u0027s actual big milestone. It\u0027s officially been a decade since Stardew Va",
+                         "published_at":  "2026-02-27T00:24:04.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806709314"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley 10-year Anniversary",
+                         "text":  "Stardew Valley. Back when Stardew first came out, I was worried it might be a flop. Now, 10 years later, it\u0027s one of the highest rated games on Steam, and has sold over 50 million copies worldwide. It\u0027s been quite a journey. Of course, none",
+                         "published_at":  "2026-02-26T23:40:00.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1825727806709248"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "ConcernedApe wins my funny bit of the year award for making Clint a marriage candidate in Stardew Valley\u0027s 1.7 update",
+                         "text":  "Stardew Valley , as of today, as temporally upsetting as it is to write this, is officially 10 years old. An entire decade! A far cry from being able to vote, but in the UK it could be convicted of a criminal offence, if such a situation we",
+                         "published_at":  "2026-02-26T22:58:13.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/Rock, Paper, Shotgun/1825727806709264"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "May I have the envelope, please? Stardew Valley will add Clint and Sandy as marriage candidates in its 1.7 update",
+                         "text":  "Stardew Valley. Today Eric \u0027ConcernedApe\u0027 Barone\u0027s beloved farming sim celebrated its 10th anniversary with a short half-hour retrospective and the long-awaited reveal of its upcoming marriage candidates. That\u0027s right, you\u0027re getting two ne",
+                         "published_at":  "2026-02-26T19:55:31.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806708827"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "As Stardew Valley turns ten, ConcernedApe\u0027s life game still holds a personally important record",
+                         "text":  "Stardew Valley : the coziness, the music, the romance, the mods. Sure, I\u0027m deeply appreciative of all those elements too - despite all the challengers that came after its launch ten years ago today, and the many more that will spring up in",
+                         "published_at":  "2026-02-26T17:34:20.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1825727806708382"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "It\u0027s been 10 years since the release of Stardew Valley, and these are the 10 best updates the game has released in that time",
+                         "text":  "Stardew Valley was released, which is hard to believe, but when you look back at the update log for the game as a whole. It certainly feels like we\u0027ve been through a lot in that time. Going back to the original version makes you realise jus",
+                         "published_at":  "2026-02-26T11:44:29.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806707279"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Only expert farmers will harvest a high score in our Stardew Valley quiz sown for Pelican Town veterans",
+                         "text":  "Stardew Valley celebrates its 10th anniversary this year, and we\u0027re still talking about free updates to the farming sim that don\u0027t involve overpriced DLC or unnecessary sequels. I\u0027ve learned to simply not listen when creator Eric Barone ins",
+                         "published_at":  "2026-02-25T22:58:00.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806706161"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "10 years later, I still can\u0027t believe Eric Barone thought Harvest Moon fans would hate Stardew Valley",
+                         "text":  "If there\u0027s one thing I\u0027m always saying as a PC gamer, it\u0027s \"I really hope nobody takes a console-exclusive series I loved as a kid that\u0027s rarely if ever been replicated on the platform I now predominantly use as an adult and creates a moder",
+                         "published_at":  "2026-02-25T22:04:12.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825727806706094"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "A beginner\u0027s guide to installing Stardew Valley mods: SMAPI, Stardrop, and more",
+                         "text":  "Stardew Valley mods . With so much community support, it\u0027s an easy game for first-time modders to dive into, but modding can still be an intimidating task... Read more.",
+                         "published_at":  "2026-02-21T01:17:11.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1825093633189320"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley fan left their Switch running for \u0027over 3 weeks straight\u0027 to sleep for 1,000 years, waking up to immortal villagers, giant mushrooms and debris everywhere",
+                         "text":  "Stardew Valley \u0027s big 1.7 update and Haunted Chocolatier . It\u0027s a similar phenomenon to GTA 6 , where the eternal waiting inevitably leads fans to become untethered and start doing wacky things just for the fun of it... Read more.",
+                         "published_at":  "2026-02-17T11:42:43.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1824644522847355"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley 1.7: The farmer\u0027s almanac for key details and news on the next big update",
+                         "text":  "Stardew Valley 1.7 update is making a ton of noise in the new year, and it just so happens the beloved farming sim celebrates its tenth anniversary soon. Try as he might, Stardew Valley creator Eric \u0027ConcernedApe\u0027 Barone can\u0027t stay away fro",
+                         "published_at":  "2026-02-06T21:42:23.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466500748"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "\u0027I\u0027m a total amateur\u0027 says Stardew Valley creator and developer of one of the most iconic farming sims of the 21st century",
+                         "text":  "If I was the developer behind one of the biggest games over the last 10 years—one arguably responsible for the huge surge in \u0027cosy gaming\u0027 and the return of the glorious farming sim—I\u0027d probably reckon I was a bit of a hotshot... Read more.",
+                         "published_at":  "2026-02-04T17:02:35.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466494632"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "\u0027I feel like no one will ever find it\u0027: Stardew Valley creator says there\u0027s one big secret still lurking in the game, and no, you can\u0027t datamine it",
+                         "text":  "Stardew Valley is basically the videogame equivalent of Star Wars at this point—even if you\u0027ve never seen a single movie, you probably still know who Darth Vader is. You\u0027d think being an all-encompassing phenomenon would mean that every sto",
+                         "published_at":  "2026-02-04T14:32:40.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466494216"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Good news, Stardew Valley enthusiasts: the 1.7 update will make children \u0027a little more interesting\u0027 and add two new marriage candidates",
+                         "text":  "Stardew Valley\u0027s 1.7 patch is going to be much bigger than anyone probably expects, and that\u0027s accounting for the fact that most Stardew Valley patches end up being bigger than anyone expects. In a new interview with IGN , creator Eric Baro",
+                         "published_at":  "2026-02-04T03:43:18.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823825466492867"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Eric Barone says he\u0027d \u0027love to\u0027 make Stardew Valley 2 someday: \u0027A whole new set of characters, a whole new world, maybe capture some of that original energy that I had back in 2012\u0027",
+                         "text":  "Stardew Valley debuted 10 years ago this month, but creator Eric Barone is still hammering away on it. He\u0027s also working on a whole new game called Haunted Chocolatier . It\u0027s a lot for one guy, and so you might reasonably think that there\u0027s",
+                         "published_at":  "2026-02-03T20:58:36.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1823191198617680"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "ConcernedApe admits he was \"starting to work on a Stardew Valley 2\" before Haunted Chocolatier, and he could return to it one day",
+                         "text":  "Stardew Valley fans by admitting he \"might eventually make a Stardew Valley 2.\" Given that he and his team of devs continue to tinker with the first game as it approaches its tenth birthday (update 1.7 is confirmed to be on the way) and his",
+                         "published_at":  "2026-02-03T17:33:06.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1823191198617337"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley creator breaks silence to shoot down myths about Haunted Chocolatier, including that 2030 release rumour",
+                         "text":  "Stardew Valley creator Eric \"ConcernedApe\" Barone has emerged from the giant Easter egg in which he makes games to “debunk a few myths and false assumptions” about Haunted Chocolatier , his forthcoming sticky-fingered life sim. The good new",
+                         "published_at":  "2026-01-29T15:08:50.0000000Z",
+                         "source":  "Rock, Paper, Shotgun",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/rps/1823191198602638"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "I never thought Stardew Valley and Diablo could coexist in one game, but then I saw Emberville",
+                         "text":  "Stardew Valley and Diablo? It\u0027s a wild premise. But if you\u0027re anything like me, seeing it in action will make you much more enthused and optimistic that this combination can work. Injecting class-based progression, deeper combat, and beasts",
+                         "published_at":  "2026-01-28T15:06:50.0000000Z",
+                         "source":  "PCGamesN",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/1823191198600050"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Eric Barone doesn\u0027t want to \u0027reveal much yet,\u0027 but Stardew Valley\u0027s 1.7 update is starting to sound like another big one",
+                         "text":  "Stardew Valley creator Eric Barone may be getting up to his old shenanigans again, and by \u0027old shenanigans\u0027 I mean turning a small, just one more thing update into a big, beefy add-on. Barone said shortly after confirming the Stardew Valley",
+                         "published_at":  "2025-12-17T17:03:06.0000000Z",
+                         "source":  "PC Gamer",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/PC Gamer/1819386365087441"
+                     },
+                     {
+                         "app_id":  413150,
+                         "title":  "Stardew Valley Merchandise by Fangamer -- Special Promotion",
+                         "text":  "Stardew Valley\u0027s merchandise partner, Fangamer. They make some of the coolest merch, and they are doing a free shipping thing for the holidays (Details below). Check it out!links:Worldwide: https://fanga.me/r/stardew-valley-holidays-2025EU",
+                         "published_at":  "2025-11-21T17:58:09.0000000Z",
+                         "source":  "Community Announcements",
+                         "url":  "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1816849002015096"
+                     }
+                 ]
+}
