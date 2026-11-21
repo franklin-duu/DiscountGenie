@@ -72,6 +72,28 @@ class PredictionModelsTests(unittest.TestCase):
         self.assertTrue(result["models"]["nlp"]["applicable"])
         self.assertLess(result["models"]["nlp"]["sale_probability"], 0.5)
 
+    def test_app_id_article_association_does_not_require_text_match(self):
+        result = run_prediction_pipeline(
+            self.game,
+            [],
+            [{"app_id": 730, "title": "Publisher update", "text": "News"}],
+        )
+
+        self.assertTrue(result["models"]["nlp"]["applicable"])
+        self.assertEqual(result["models"]["nlp"]["article_count"], 1)
+
+    def test_synthesis_keeps_history_count_as_display_metadata_only(self):
+        result = run_prediction_pipeline(
+            self.game,
+            [{"discount_percent": 0}],
+            [],
+        )
+
+        self.assertEqual(
+            result["models"]["fusion"]["inputs"]["history_observations"],
+            1,
+        )
+
     def test_missing_history_and_articles_returns_historical_only(self):
         result = run_prediction_pipeline(self.game, [], [])
 

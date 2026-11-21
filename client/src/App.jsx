@@ -338,7 +338,7 @@ function GamePage() {
             <article className="model-stage">
               <span className="stage-index">01 / HISTORY</span>
               <h3>Historical model</h3>
-              <p>{models.historical?.inputs?.history_observations ?? 0} daily price observations</p>
+              <p>{models.fusion?.inputs?.history_observations ?? 0} daily price observations</p>
               <strong>{Math.round((models.historical?.sale_probability || 0) * 100)}% likelihood</strong>
             </article>
             <article className="model-stage">

@@ -131,15 +131,21 @@ def _sigmoid(value: float) -> float:
 
 
 def _entity_match(game: dict[str, Any], article: dict[str, Any]) -> bool:
-    text = " ".join(
+    text = _normalise_entity_text(" ".join(
         str(article.get(field) or "") for field in ("title", "text")
-    ).casefold()
+    ))
     entities = [game.get("name"), game.get("publisher")]
     return any(
-        len(entity_text) >= 3 and entity_text.casefold() in text
+        len(normalised_entity) >= 2 and normalised_entity in text
         for entity in entities
         if (entity_text := str(entity or "").strip())
+        and (normalised_entity := _normalise_entity_text(entity_text))
     )
+
+
+def _normalise_entity_text(value: str) -> str:
+    """Make entity matching resilient to trademark and punctuation variants."""
+    return re.sub(r"[^\w]+", " ", value.casefold(), flags=re.UNICODE).strip()
 
 
 def article_feature_counts(
@@ -147,7 +153,21 @@ def article_feature_counts(
     articles: list[dict[str, Any]],
     phrases: Iterable[str] = ARTICLE_LEXICON,
 ) -> tuple[list[dict[str, Any]], dict[str, int]]:
-    matched_articles = [article for article in articles if _entity_match(game, article)]
+    # Collected Steam articles carry the app_id they came from.  Treat that as
+    # the authoritative association; fall back to text matching for callers
+    # that provide ad-hoc articles without an app_id (including older tests).
+    matched_articles = [
+        article
+        for article in articles
+        if (
+            article.get("app_id") is not None
+            and int(article["app_id"]) == int(game["app_id"])
+        )
+        or (
+            article.get("app_id") is None
+            and _entity_match(game, article)
+        )
+    ]
     combined_text = " ".join(
         f"{article.get('title') or ''} {article.get('text') or ''}"
         for article in matched_articles
@@ -216,7 +236,7 @@ class WeightedArticleSaleModel:
 class SynthesisLogisticModel:
     """Combine model probabilities and coverage signals with logistic regression."""
 
-    name = "steam_sale_synthesis_logistic_v1"
+    name = "steam_sale_synthesis_logistic_v2"
 
     def __init__(self, artifact: Optional[dict[str, Any]] = None):
         self.artifact = artifact or {
@@ -226,7 +246,6 @@ class SynthesisLogisticModel:
                 "article_probability": 0.9,
                 "article_applies": 0.2,
                 "article_count": 0.03,
-                "history_observations": 0.001,
             },
         }
 
@@ -253,7 +272,14 @@ class SynthesisLogisticModel:
             "article_probability": article_probability,
             "article_applies": int(applies),
             "article_count": article_count,
+            # Display metadata only; this is intentionally not a synthesis
+            # feature because raw observation counts are not sale evidence.
             "history_observations": int(history_observations),
+        }
+        synthesis_features = {
+            name: value
+            for name, value in features.items()
+            if name not in {"history_observations", "article_count"}
         }
         # Abstention is a true pass-through: no synthetic news score can shift it.
         if not applies:
@@ -262,7 +288,7 @@ class SynthesisLogisticModel:
         else:
             logit = float(self.artifact["intercept"]) + sum(
                 float(coefficients.get(name, 0.0)) * value
-                for name, value in features.items()
+                for name, value in synthesis_features.items()
             )
             sale_probability = _sigmoid(logit)
             historical_term = abs(

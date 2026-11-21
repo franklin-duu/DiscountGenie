@@ -13,6 +13,8 @@ from typing import Any
 import pandas as pd
 import psycopg2
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import brier_score_loss, log_loss
+from sklearn.model_selection import TimeSeriesSplit
 
 from model_features import SALE_FEATURE_COLUMNS, _normalise_history
 from ml_training.collect_articles import ARTICLE_GAME_IDS
@@ -153,8 +155,6 @@ def _train_synthesis_model(
         "historical_probability",
         "article_probability",
         "article_applies",
-        "article_count",
-        "history_observations",
     ]
     features = [
         [float(sample.get(name, 0)) for name in feature_names]
@@ -166,12 +166,97 @@ def _train_synthesis_model(
     classifier = LogisticRegression(max_iter=1000, random_state=42)
     classifier.fit(features, labels)
     return {
+        "feature_names": feature_names,
         "intercept": float(classifier.intercept_[0]),
         "coefficients": {
             name: float(coefficient)
             for name, coefficient in zip(feature_names, classifier.coef_[0])
         },
         "training_samples": len(labels),
+    }
+
+
+def _historical_oof_probabilities(
+    rows_by_game: dict[int, tuple[dict[str, Any], list[dict[str, Any]], pd.Series]],
+) -> list[tuple[dict[str, Any], float]]:
+    """Generate time-ordered historical probabilities for synthesis training.
+
+    The historical XGBoost model is trained on all rows for production.  Using
+    its in-sample predictions to train synthesis would leak the labels into
+    the second-stage model, so synthesis receives out-of-fold predictions
+    instead.
+    """
+    rows = [row for _, game_rows, _ in rows_by_game.values() for row in game_rows]
+    rows.sort(key=lambda row: pd.Timestamp(row["observation_date"]))
+    if len(rows) < 10:
+        return []
+
+    probabilities: dict[int, float] = {}
+    splitter = TimeSeriesSplit(n_splits=5)
+    for train_indices, test_indices in splitter.split(rows):
+        train_rows = [rows[index] for index in train_indices]
+        if len({row["sale_within_30_days"] for row in train_rows}) < 2:
+            continue
+        fold_model = SteamSaleXGBoostModel().fit(train_rows)
+        frame = pd.DataFrame([rows[index] for index in test_indices])
+        predicted = fold_model.model.predict_proba(frame[SALE_FEATURE_COLUMNS])[:, 1]
+        for index, probability in zip(test_indices, predicted):
+            probabilities[index] = float(probability)
+
+    return [
+        (row, probabilities[index])
+        for index, row in enumerate(rows)
+        if index in probabilities
+    ]
+
+
+def _evaluate_synthesis_models(
+    records: list[tuple[dict[str, Any], dict[str, Any]]]
+) -> dict[str, float]:
+    """Compare logistic synthesis with a simple probability blend on a holdout."""
+    if len(records) < 20:
+        return {}
+    records = sorted(records, key=lambda item: item[1]["observation_date"])
+    split = int(len(records) * 0.8)
+    training, validation = records[:split], records[split:]
+    feature_names = [
+        "historical_probability",
+        "article_probability",
+        "article_applies",
+    ]
+    classifier = LogisticRegression(max_iter=1000, random_state=42)
+    classifier.fit(
+        [[float(sample.get(name, 0)) for name in feature_names] for sample, _ in training],
+        [int(row["sale_within_30_days"]) for _, row in training],
+    )
+    actual = [int(row["sale_within_30_days"]) for _, row in validation]
+    logistic_probabilities = classifier.predict_proba(
+        [[float(sample.get(name, 0)) for name in feature_names] for sample, _ in validation]
+    )[:, 1]
+    best_weight = 0.5
+    best_brier = float("inf")
+    for historical_weight in [index / 20 for index in range(21)]:
+        blended = [
+            historical_weight * float(sample["historical_probability"])
+            + (1 - historical_weight) * float(sample["article_probability"])
+            for sample, _ in validation
+        ]
+        score = brier_score_loss(actual, blended)
+        if score < best_brier:
+            best_brier = score
+            best_weight = historical_weight
+    blend = [
+        best_weight * float(sample["historical_probability"])
+        + (1 - best_weight) * float(sample["article_probability"])
+        for sample, _ in validation
+    ]
+    return {
+        "validation_rows": len(validation),
+        "logistic_brier": round(brier_score_loss(actual, logistic_probabilities), 6),
+        "logistic_log_loss": round(log_loss(actual, logistic_probabilities, labels=[0, 1]), 6),
+        "blend_brier": round(brier_score_loss(actual, blend), 6),
+        "blend_log_loss": round(log_loss(actual, blend, labels=[0, 1]), 6),
+        "blend_historical_weight": best_weight,
     }
 
 
@@ -237,44 +322,41 @@ def train_news_models() -> None:
     article_artifact, article_samples, article_count = _train_article_model(all_game_rows)
     article_model = WeightedArticleSaleModel(article_artifact)
     synthesis_records = []
-    for app_id, (game, rows, history_dates) in rows_by_game.items():
-        articles = articles_by_game.get(app_id, [])
-        for row in rows:
-            history_features = {
-                name: row[name] for name in SALE_FEATURE_COLUMNS
-            }
-            historical_probability = float(
-                historical_model.model.predict_proba(
-                    pd.DataFrame([history_features])[SALE_FEATURE_COLUMNS]
-                )[0, 1]
+    oof_rows = _historical_oof_probabilities(rows_by_game)
+    game_lookup = {
+        app_id: (game, articles_by_game.get(app_id, []))
+        for app_id, (game, _, _) in rows_by_game.items()
+    }
+    for row, historical_probability in oof_rows:
+        game, articles = game_lookup[int(row["app_id"])]
+        matched_articles = _articles_available_on(
+            articles, row["observation_date"]
+        )
+        article_output = article_model.predict(game, matched_articles)
+        article_applies = article_output["applicable"]
+        synthesis_records.append(
+            (
+                {
+                    "historical_probability": historical_probability,
+                    "article_probability": (
+                        article_output["sale_probability"]
+                        if article_applies
+                        else 0.0
+                    ),
+                    "article_applies": int(article_applies),
+                    # Metadata for diagnostics/UI; excluded from synthesis features.
+                    "article_count": (
+                        article_output["article_count"] if article_applies else 0
+                    ),
+                },
+                row,
             )
-            matched_articles = _articles_available_on(
-                articles, row["observation_date"]
-            )
-            article_output = article_model.predict(game, matched_articles)
-            article_applies = article_output["applicable"]
-            synthesis_records.append(
-                (
-                    {
-                        "historical_probability": historical_probability,
-                        "article_probability": (
-                            article_output["sale_probability"]
-                            if article_applies
-                            else 0.0
-                        ),
-                        "article_applies": int(article_applies),
-                        "article_count": (
-                            article_output["article_count"] if article_applies else 0
-                        ),
-                        "history_observations": int(
-                            (history_dates <= pd.Timestamp(row["observation_date"])).sum()
-                        ),
-                    },
-                    row,
-                )
-            )
+        )
+    if len(synthesis_records) < 20:
+        raise RuntimeError("Synthesis training needs at least 20 out-of-fold rows.")
 
     synthesis_artifact = _train_synthesis_model(synthesis_records)
+    synthesis_artifact["validation"] = _evaluate_synthesis_models(synthesis_records)
     model_dir.mkdir(parents=True, exist_ok=True)
     article_path = model_dir / "steam_sale_nlp.json"
     synthesis_path = model_dir / "steam_sale_synthesis.json"
@@ -297,6 +379,7 @@ def train_news_models() -> None:
     print(f"articles={article_count}")
     print(f"article_training_rows={article_samples}")
     print(f"synthesis_training_rows={len(synthesis_records)}")
+    print(f"synthesis_validation={synthesis_artifact['validation']}")
     print(f"article_model_path={article_path}")
     print(f"synthesis_model_path={synthesis_path}")
     print("prediction_cache_cleared=true")
