@@ -1,7 +1,7 @@
 """
 USED ONLY TO HELP FILL OUT TRAINING DATA
 
-Slowly import game metadata for App IDs represented by training CSVs.
+Slowly import game metadata for App IDs represented by training CSVs to avoid Steam rate limiting.
 
 This intentionally reuses get_steam_game() from steam_api.py and waits between
 requests. It is meant for one-time data population, not the prediction API.
