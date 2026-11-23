@@ -62,7 +62,6 @@ class SteamSaleXGBoostModel:
             "model": self.name,
             "features": features,
             "sale_probability": round(probability, 4),
-            "will_sale_within_30_days": probability >= 0.5,
         }
 
     def save(self, path: str | Path) -> None:
