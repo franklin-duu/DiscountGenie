@@ -11,7 +11,11 @@ from pathlib import Path
 from games_db_manager import GamesDBManager
 from prediction_models import SteamSaleXGBoostModel
 from steam_api import get_steam_game
-from .training_data_loader import load_base_price_schedule_csv, load_steamdb_csv
+from .training_data_loader import (
+    expand_daily_history,
+    load_base_price_schedule_csv,
+    load_steamdb_csv,
+)
 from .training_rows import build_training_rows
 
 
@@ -36,7 +40,8 @@ def main() -> None:
                 print(f"skipping={csv_path.name} reason=no base-price schedule")
                 continue
 
-            history = load_steamdb_csv(csv_path, schedules[app_id])
+            sparse_history = load_steamdb_csv(csv_path, schedules[app_id])
+            history = expand_daily_history(sparse_history)
             game = manager.get_game(app_id)
             if game is None:
                 game = manager.input_game(**get_steam_game(app_id))

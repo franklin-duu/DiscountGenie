@@ -89,8 +89,11 @@ WHERE app_id = 620
 ORDER BY observation_date;
 ```
 
-Training examples are generated from compressed price history and can be saved
-through `GamesDBManager.save_training_examples()`.
+Price history is stored compactly as uninterrupted price periods in
+`game_price_history`. The `game_price_history_daily` view expands those periods
+into one logical UTC calendar-day observation when the model or a query needs
+daily history. Training and prediction both use this daily representation;
+only the database storage remains compressed.
 
 ## Training the Model
 
@@ -126,7 +129,8 @@ anomaly handling or base prices.
 ### Train the XGBoost model
 
 The trainer reads `training_data/base_price_history.csv` and the CSV files in
-`training_data/price_history/`, generates labeled rows, saves them to
+`training_data/price_history/`, expands sparse price changes into daily
+observations, generates labeled rows, saves them to
 `sale_training_examples`, and writes the model to:
 
 ```bash
@@ -144,6 +148,17 @@ After retraining, clear cached predictions and restart the AI service:
 ```bash
 docker compose exec -T db psql -U postgres -d steam_sales -c 'TRUNCATE sale_predictions;'
 docker compose restart ai-service
+```
+
+When retraining the complete model stack, retrain the XGBoost model first and
+then retrain the article and synthesis models so every model uses the same
+daily observation format:
+
+```bash
+docker compose build ai-service
+docker compose run --rm ai-service python -m ml_training.train_model
+docker compose run --rm ai-service python -m ml_training.train_news_models
+docker compose up -d --force-recreate ai-service
 ```
 
 ### Collect articles and train the news models

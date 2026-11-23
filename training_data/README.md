@@ -35,8 +35,9 @@ are not modified.
 
 ## Importing history into PostgreSQL
 
-Training reads the CSV files directly, while the prediction API reads price
-history from PostgreSQL. Import the same corrected CSV data with:
+Training reads the CSV files directly, expands sparse price changes into one
+observation per calendar day, and while the prediction API reads equivalent
+daily history from PostgreSQL. Import the same corrected CSV data with:
 
 ```bash
 docker compose build ai-service

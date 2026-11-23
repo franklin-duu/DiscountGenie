@@ -64,6 +64,33 @@ def load_steamdb_csv(
     return history
 
 
+def expand_daily_history(history: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Expand sparse price changes into one observation per calendar day.
+
+    This mirrors the ``game_price_history_daily`` PostgreSQL view used by
+    inference: a price observation remains in effect until the next price
+    change, and multiple observations on one day use the final observation.
+    """
+    if not history:
+        return []
+
+    by_day: dict[pd.Timestamp, dict[str, Any]] = {}
+    for row in sorted(history, key=lambda item: pd.Timestamp(item["observation_date"])):
+        observation = pd.Timestamp(row["observation_date"]).tz_localize(None)
+        by_day[observation.normalize()] = {**row, "observation_date": observation}
+
+    dates = sorted(by_day)
+    expanded: list[dict[str, Any]] = []
+    point_index = 0
+    active = by_day[dates[0]]
+    for day in pd.date_range(dates[0], dates[-1], freq="D"):
+        while point_index + 1 < len(dates) and dates[point_index + 1] <= day:
+            point_index += 1
+            active = by_day[dates[point_index]]
+        expanded.append({**active, "observation_date": day})
+    return expanded
+
+
 def load_base_price_schedule_csv(
     path: Union[str, Path],
 ) -> dict[int, list[tuple[str, float]]]:

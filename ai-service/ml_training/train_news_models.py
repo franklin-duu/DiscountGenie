@@ -19,6 +19,7 @@ from sklearn.model_selection import TimeSeriesSplit
 from model_features import SALE_FEATURE_COLUMNS, _normalise_history
 from ml_training.collect_articles import ARTICLE_GAME_IDS
 from ml_training.training_data_loader import (
+    expand_daily_history,
     load_base_price_schedule_csv,
     load_steamdb_csv,
 )
@@ -300,7 +301,8 @@ def train_news_models() -> None:
         if csv_path is None or app_id not in schedule_map:
             continue
         game = game_map[app_id]
-        history = load_steamdb_csv(csv_path, schedule_map[app_id])
+        sparse_history = load_steamdb_csv(csv_path, schedule_map[app_id])
+        history = expand_daily_history(sparse_history)
         rows = build_training_rows(game, history)
         if rows:
             normalized_history = _normalise_history(history)
