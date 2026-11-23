@@ -167,6 +167,7 @@ class GamesDBManager:
             cursor.execute(query, (query_text, pattern, pattern, query_text, limit))
             return [dict(game) for game in cursor.fetchall()]
 
+# unused but could be used in the future for showcasing a graph like steam db
     def get_price_history(self, app_id: int) -> list[dict[str, Any]]: # Returns all of the table entries for a game using its app id, newest period first.
         query = """
             SELECT id, app_id, base_price, current_price,
@@ -248,6 +249,7 @@ class GamesDBManager:
             self.connection.rollback()
             raise
 
+# used for debugging
     def get_training_examples(self, app_id: Optional[int] = None) -> list[dict[str, Any]]:
         """Read saved training rows, optionally limited to one game."""
         self._ensure_training_examples_table()
