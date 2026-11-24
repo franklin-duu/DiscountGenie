@@ -1,10 +1,11 @@
+import hashlib
 import json
 import os
 import re
 from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
@@ -34,8 +35,38 @@ def _model_paths() -> dict[str, Path]:
     }
 
 
+def _article_snapshot_path() -> Path:
+    return (
+        Path(os.getenv("TRAINING_DATA_DIR", "/training_data"))
+        / "articles"
+        / "articles.json"
+    )
+
+
+def _file_signature(path: Path) -> tuple[str, Optional[int], Optional[int]]:
+    try:
+        stat = path.stat()
+    except FileNotFoundError:
+        return str(path), None, None
+    return str(path), stat.st_mtime_ns, stat.st_size
+
+
+def _prediction_artifact_signature() -> tuple[
+    tuple[str, Optional[int], Optional[int]], ...
+]:
+    return tuple(
+        _file_signature(path)
+        for path in (*_model_paths().values(), _article_snapshot_path())
+    )
+
+
+def _artifact_version(signature: tuple[Any, ...]) -> str:
+    encoded = json.dumps(signature, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
 @lru_cache(maxsize=1)
-def _load_trained_models():
+def _load_trained_models(_signature):
     paths = _model_paths()
     historical = (
         SteamSaleXGBoostModel.load(paths["historical"])
@@ -57,12 +88,8 @@ def _load_trained_models():
 
 
 @lru_cache(maxsize=1)
-def _article_snapshot() -> list[dict[str, Any]]:
-    article_path = (
-        Path(os.getenv("TRAINING_DATA_DIR", "/training_data"))
-        / "articles"
-        / "articles.json"
-    )
+def _article_snapshot(_signature) -> list[dict[str, Any]]:
+    article_path = _article_snapshot_path()
     if not article_path.exists():
         return []
     with open(article_path, encoding="utf-8") as file:
@@ -75,7 +102,9 @@ def _load_articles(app_id: int) -> list[dict[str, Any]]:
     cutoff = now - timedelta(days=30)
     return [
         article
-        for article in _article_snapshot()
+        for article in _article_snapshot(
+            _file_signature(_article_snapshot_path())
+        )
         if int(article.get("app_id", 0)) == app_id
         and cutoff
         <= datetime.fromisoformat(
@@ -125,6 +154,8 @@ def _cached_response(game, saved_prediction):
 
 def _prediction_for_game(manager: GamesDBManager, game: dict[str, Any]):
     app_id = int(game["app_id"])
+    artifact_signature = _prediction_artifact_signature()
+    artifact_version = _artifact_version(artifact_signature)
     saved_prediction = manager.get_prediction(app_id)
     if saved_prediction and saved_prediction.get("updated_at"):
         prediction_updated_at = saved_prediction["updated_at"]
@@ -133,10 +164,14 @@ def _prediction_for_game(manager: GamesDBManager, game: dict[str, Any]):
             game_updated_at
             and prediction_updated_at >= game_updated_at
             and saved_prediction.get("model_details")
+            and saved_prediction["model_details"].get("artifact_version")
+            == artifact_version
         ):
             return _cached_response(game, saved_prediction)
 
-    historical, article, synthesis, is_demo = _load_trained_models()
+    historical, article, synthesis, is_demo = _load_trained_models(
+        artifact_signature
+    )
     result = run_prediction_pipeline(
         game,
         manager.get_daily_price_history(app_id),
@@ -163,6 +198,7 @@ def _prediction_for_game(manager: GamesDBManager, game: dict[str, Any]):
             "models": models,
             "effective_weights": result["effective_weights"],
             "demo": is_demo,
+            "artifact_version": artifact_version,
         },
     )
     return result
@@ -204,6 +240,12 @@ def ranked_games(limit: int = Query(default=20, ge=1, le=30)):
         manager = GamesDBManager()
         ranked = []
         for game in manager.get_rankable_games(limit):
+            try:
+                game = manager.get_or_fetch_game(
+                    int(game["app_id"]), "us", "en"
+                )
+            except SteamAPIError:
+                pass
             result = _prediction_for_game(manager, game)
             game_data = result["game"]
             ranked.append(

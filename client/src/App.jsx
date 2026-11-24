@@ -177,7 +177,7 @@ function GameGrid({ games, emptyMessage }) {
             <h3>{game.name}</h3>
             <span className="card-probability">
               {typeof game.sale_probability === 'number'
-                ? `${Math.round(game.sale_probability * 100)}% chance`
+                ? `${(game.sale_probability * 100).toFixed(1)}% chance`
                 : game.publisher || 'Steam game'}
             </span>
             {game.predicted_sale_window && (
